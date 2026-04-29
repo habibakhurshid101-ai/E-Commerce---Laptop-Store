@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — LapElite</title>
+  <meta name="description" content="Sign in to your LapElite account to manage orders, track shipments and access exclusive deals.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../cssFile/globalStyles.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="../index.html">Lap<span>Elite</span></a>
+    <ul id="navMenu">
+      <li><a href="../index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="products.html">Products ▾</a>
+        <div class="dropdown-menu">
+          <a href="products.html">All Products</a>
+          <a href="products.html">Laptops</a>
+          <a href="products.html">Desktops</a>
+          <a href="products.html">Workstations</a>
+          <a href="products.html">Accessories</a>
+        </div>
+      </li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button id="themeToggle" onclick="toggleDarkMode()">🌙</button>
+      <a href="cart.html" class="link-button" style="position:relative;">
+        🛒 Cart
+        <span id="cartBadge" style="display:none;position:absolute;top:-6px;right:-6px;background:#ef4444;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;align-items:center;justify-content:center;font-weight:700;">0</span>
+      </a>
+      <a href="login.html" class="link-button active">Login</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </nav>
+
+  <!-- LOGIN PAGE -->
+  <div class="page-centered">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:24px;width:100%;max-width:480px;">
+
+      <div style="text-align:center;">
+        <h2>Welcome Back 👋</h2>
+        <p style="margin-top:6px;">Sign in to your LapElite account</p>
+      </div>
+
+      <div class="form-container" style="width:100%;">
+        <form id="loginForm" onsubmit="handleLogin(event)">
+
+          <div>
+            <label for="loginEmail">Email Address</label>
+            <input type="email" id="loginEmail" placeholder="you@example.com" required autocomplete="email">
+          </div>
+
+          <div>
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" placeholder="••••••••" required autocomplete="current-password">
+          </div>
+
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0;">
+            <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer;margin-bottom:0;">
+              <input type="checkbox" id="rememberMe" style="width:auto;"> Remember me
+            </label>
+            <a href="#" style="font-size:13px;color:var(--text-focus-color);">Forgot password?</a>
+          </div>
+
+          <div style="margin-top:20px;">
+            <button type="submit" class="lg-button" style="width:100%;">Sign In →</button>
+          </div>
+        </form>
+
+        <div class="divider"></div>
+
+        <div style="text-align:center;">
+          <p style="font-size:13px;">Don't have an account?
+            <a href="signup.html" style="color:var(--text-focus-color);font-weight:600;">Create one →</a>
+          </p>
+        </div>
+
+        <div style="margin-top:16px;display:flex;gap:10px;flex-direction:column;">
+          <button class="border-button" style="width:100%;"><span>🔍</span> Continue with Google</button>
+          <button class="border-button" style="width:100%;border-color:var(--border-primary-color);color:var(--text-secondary-color);"><span>🍎</span> Continue with Apple</button>
+        </div>
+      </div>
+
+      <p style="font-size:12px;text-align:center;color:var(--text-muted-color);">
+        By signing in you agree to our <a href="#" style="color:var(--text-focus-color);">Terms of Use</a> and <a href="#" style="color:var(--text-focus-color);">Privacy Policy</a>.
+      </p>
+    </div>
+  </div>
+
+  <script src="../jsFile/jsFunctions.js"></script>
+</body>
+</html>

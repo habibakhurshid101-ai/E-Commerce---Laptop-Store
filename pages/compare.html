@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compare Laptops — LapElite</title>
+  <meta name="description" content="Compare laptops side-by-side at LapElite. Find the best laptop for your needs with detailed spec comparisons.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../cssFile/globalStyles.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html">Lap<span>Elite</span></a>
+    <ul id="navMenu">
+      <li><a href="../index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="products.html">Products ▾</a>
+        <div class="dropdown-menu">
+          <a href="products.html">All Products</a>
+          <a href="products.html">Laptops</a>
+          <a href="products.html">Desktops</a>
+          <a href="products.html">Workstations</a>
+          <a href="products.html">Accessories</a>
+        </div>
+      </li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button id="themeToggle" onclick="toggleDarkMode()">🌙</button>
+      <a href="compare.html" class="link-button active">⚖️ Compare</a>
+      <a href="cart.html" class="link-button" style="position:relative;">🛒 Cart
+        <span id="cartBadge" style="display:none;position:absolute;top:-6px;right:-6px;background:#ef4444;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;align-items:center;justify-content:center;font-weight:700;">0</span>
+      </a>
+      <a href="login.html" class="link-button">Login</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </nav>
+
+  <div class="page">
+    <div class="section-header" style="align-items:flex-start;margin-bottom:40px;">
+      <h1>⚖️ Compare Laptops</h1>
+      <p>Side-by-side specification comparison to help you choose the right laptop</p>
+    </div>
+
+    <!-- Product Selector Row -->
+    <div class="card-container" style="justify-content:flex-start;margin:0 0 32px 0;gap:16px;">
+      <div class="card" style="width:220px;padding:20px;align-items:center;text-align:center;">
+        <div style="background:radial-gradient(circle,rgba(26,86,219,0.1),var(--bg-card));padding:20px;border-radius:var(--radius-sm);width:100%;display:flex;justify-content:center;">
+          <img src="../sources/image1.png" style="height:100px;object-fit:contain;"
+               onerror="this.src='https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=200&q=70'">
+        </div>
+        <div class="card-body" style="align-items:center;">
+          <h4>Dell XPS 15</h4>
+          <span class="price-tag" style="font-size:16px;">Rs. 289,000</span>
+          <button class="sm-button" style="margin-top:8px;" onclick="addToCart('Dell XPS 15',289000,1)">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="card" style="width:220px;padding:20px;align-items:center;text-align:center;">
+        <div style="background:radial-gradient(circle,rgba(124,58,237,0.1),var(--bg-card));padding:20px;border-radius:var(--radius-sm);width:100%;display:flex;justify-content:center;">
+          <img src="../sources/image2.png" style="height:100px;object-fit:contain;"
+               onerror="this.src='https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=200&q=70'">
+        </div>
+        <div class="card-body" style="align-items:center;">
+          <h4>HP Spectre x360</h4>
+          <span class="price-tag" style="font-size:16px;">Rs. 349,000</span>
+          <button class="sm-button" style="margin-top:8px;" onclick="addToCart('HP Spectre x360',349000,2)">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="card" style="width:220px;padding:20px;align-items:center;text-align:center;">
+        <div style="background:radial-gradient(circle,rgba(14,165,233,0.1),var(--bg-card));padding:20px;border-radius:var(--radius-sm);width:100%;display:flex;justify-content:center;">
+          <img src="../sources/image3.png" style="height:100px;object-fit:contain;"
+               onerror="this.src='https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=200&q=70'">
+        </div>
+        <div class="card-body" style="align-items:center;">
+          <h4>ThinkPad X1 Carbon</h4>
+          <span class="price-tag" style="font-size:16px;">Rs. 420,000</span>
+          <button class="sm-button" style="margin-top:8px;" onclick="addToCart('ThinkPad X1 Carbon',420000,3)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="table-container">
+      <table style="min-width:640px;" class="table-bordered">
+        <thead>
+          <tr>
+            <th style="width:200px;">Specification</th>
+            <th>Dell XPS 15</th>
+            <th>HP Spectre x360</th>
+            <th>ThinkPad X1 Carbon</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:600;color:var(--text-primary-color);">Price</td>
+            <td>Rs. 289,000</td>
+            <td>Rs. 349,000</td>
+            <td>Rs. 420,000</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text-primary-color);">Processor</td>
+            <td>Intel Core i7-13700H</td>
+            <td>Intel Core i9-13900H</td>
+            <td>AMD Ryzen 9 7940HS</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text-primary-color);">RAM</td>
+            <td>16GB DDR5</td>
+            <td>32GB LPDDR5</td>
+            <td>32GB LPDDR5</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text-primary-color);">Storage</td>
+            <td>512GB NVMe PCIe 4</td>
+            <td>1TB NVMe PCIe 4</td>
+            <td>1TB NVMe PCIe 4</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text-primary-color);">Display</td>
+            <td>15.6" OLED 3.5K 120Hz</td>
+            <td>13.5" 2K OLED Touch 120Hz</td>
+            <td>14" 4K OLED 90Hz</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text-primary-color);">Graphics</td>
+            <td>RTX 4060 8GB</td>
+            <td>Intel Iris Xe</td>
+            <td>AMD Radeon 780M</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text-primary-color);">Battery</td>
+            <td>86Wh · 13 hrs</td>
+            <td>66Wh · 17 hrs</td>
+            <td>57Wh · 15 hrs</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text-primary-color);">Weight</td>
+            <td>1.86 kg</td>
+            <td>1.36 kg</td>
+            <td>1.12 kg</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text-primary-color);">Ports</td>
+            <td>2× TB4, 1× USB-A, SD</td>
+            <td>2× TB4, 1× USB-A</td>
+            <td>2× TB4, 2× USB-A, HDMI</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text-primary-color);">Wi-Fi</td>
+            <td>Wi-Fi 6E</td>
+            <td>Wi-Fi 6E</td>
+            <td>Wi-Fi 6E</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text-primary-color);">OS</td>
+            <td>Windows 11 Home</td>
+            <td>Windows 11 Home</td>
+            <td>Windows 11 Pro</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text-primary-color);">Warranty</td>
+            <td>2 Yrs On-Site</td>
+            <td>2 Yrs On-Site</td>
+            <td>3 Yrs On-Site</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text-primary-color);">Best For</td>
+            <td>Creators & Gaming</td>
+            <td>Ultrabook / Travel</td>
+            <td>Business Professionals</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text-primary-color);">Rating</td>
+            <td>★★★★★ (248)</td>
+            <td>★★★★☆ (187)</td>
+            <td>★★★★★ (312)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Verdict Cards -->
+    <div class="section-header reveal" style="margin-top:60px;">
+      <h2>Our Verdict</h2>
+      <p>Which laptop is right for you?</p>
+    </div>
+    <div class="card-container reveal">
+      <div class="card" style="width:280px;padding:28px;border-color:rgba(26,86,219,0.4);">
+        <div class="card-body">
+          <span class="chip" style="background:rgba(6,214,160,0.15);color:#06d6a0;">Best Value</span>
+          <h3 style="margin-top:10px;">Dell XPS 15</h3>
+          <p style="font-size:13px;">Best balance of performance and price. Ideal for creators who want a large display and discrete GPU.</p>
+          <button class="sm-button" style="margin-top:12px;" onclick="addToCart('Dell XPS 15',289000,1)">Add to Cart</button>
+        </div>
+      </div>
+      <div class="card" style="width:280px;padding:28px;">
+        <div class="card-body">
+          <span class="chip" style="background:rgba(124,58,237,0.15);color:#a78bfa;">Most Portable</span>
+          <h3 style="margin-top:10px;">HP Spectre x360</h3>
+          <p style="font-size:13px;">Lightest of the three with the best battery life. Perfect for frequent travelers and remote workers.</p>
+          <button class="sm-button" style="margin-top:12px;" onclick="addToCart('HP Spectre x360',349000,2)">Add to Cart</button>
+        </div>
+      </div>
+      <div class="card" style="width:280px;padding:28px;">
+        <div class="card-body">
+          <span class="chip" style="background:rgba(14,165,233,0.15);color:#38bdf8;">Best Overall</span>
+          <h3 style="margin-top:10px;">ThinkPad X1 Carbon</h3>
+          <p style="font-size:13px;">Military-grade durability, 3-year warranty, Windows 11 Pro. The definitive business laptop of 2026.</p>
+          <button class="sm-button" style="margin-top:12px;" onclick="addToCart('ThinkPad X1 Carbon',420000,3)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:40px;">
+      <button class="border-button" onclick="window.location='products.html'">Browse All Products →</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div>
+        <h1>Lap<span style="color:var(--brand-primary-color);">Elite</span></h1>
+        <p>Pakistan's premium laptop & tech store since 2019.</p>
+      </div>
+      <div>
+        <h2>Quick Links</h2>
+        <a href="../index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 LapElite Pvt. Ltd. All rights reserved.</p></div>
+  </footer>
+
+  <script src="../jsFile/jsFunctions.js"></script>
+</body>
+</html>

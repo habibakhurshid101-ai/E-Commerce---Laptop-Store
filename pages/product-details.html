@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dell XPS 15 — LapElite</title>
+  <meta name="description" content="Dell XPS 15 — Intel Core i7, 16GB RAM, 512GB NVMe SSD. Buy now at LapElite with 2-year warranty.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../cssFile/globalStyles.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html">Lap<span>Elite</span></a>
+    <ul id="navMenu">
+      <li><a href="../index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="products.html" class="active">Products ▾</a>
+        <div class="dropdown-menu">
+          <a href="products.html">All Products</a>
+          <a href="products.html">Laptops</a>
+          <a href="products.html">Desktops</a>
+          <a href="products.html">Workstations</a>
+          <a href="products.html">Accessories</a>
+        </div>
+      </li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button id="themeToggle" onclick="toggleDarkMode()">🌙</button>
+      <a href="compare.html" class="link-button">⚖️ Compare</a>
+      <a href="cart.html" class="link-button" style="position:relative;">🛒 Cart
+        <span id="cartBadge" style="display:none;position:absolute;top:-6px;right:-6px;background:#ef4444;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;align-items:center;justify-content:center;font-weight:700;">0</span>
+      </a>
+      <a href="login.html" class="link-button">Login</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </nav>
+
+  <div class="page">
+    <!-- Breadcrumb -->
+    <p style="font-size:13px;color:var(--text-muted-color);margin-bottom:28px;">
+      <a href="../index.html" style="color:var(--text-muted-color);">Home</a> &rsaquo;
+      <a href="products.html" style="color:var(--text-muted-color);">Products</a> &rsaquo;
+      <span style="color:var(--text-primary-color);">Dell XPS 15</span>
+    </p>
+
+    <!-- Product Layout -->
+    <div style="display:flex;flex-wrap:wrap;gap:48px;margin-bottom:60px;">
+
+      <!-- Product Image -->
+      <div style="flex:1;min-width:280px;display:flex;flex-direction:column;gap:16px;">
+        <div style="background:radial-gradient(circle,rgba(26,86,219,0.1),var(--bg-card));border:1px solid var(--border-primary-color);border-radius:var(--radius-md);padding:48px;display:flex;justify-content:center;align-items:center;position:relative;">
+          <span class="chip" style="position:absolute;top:16px;left:16px;background:#06d6a0;color:#000;">Bestseller</span>
+          <img src="../sources/image1.png" alt="Dell XPS 15"
+               style="max-height:280px;object-fit:contain;"
+               onerror="this.src='https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&q=80'">
+        </div>
+        <!-- Thumbnails -->
+        <div style="display:flex;gap:10px;justify-content:center;">
+          <div style="width:72px;height:72px;border:1px solid var(--border-focus-color);border-radius:var(--radius-sm);padding:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+            <img src="../sources/image1.png" style="height:100%;object-fit:contain;"
+                 onerror="this.src='https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=80&q=60'">
+          </div>
+          <div style="width:72px;height:72px;border:1px solid var(--border-primary-color);border-radius:var(--radius-sm);padding:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+            <img src="../sources/image2.png" style="height:100%;object-fit:contain;"
+                 onerror="this.src='https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=80&q=60'">
+          </div>
+          <div style="width:72px;height:72px;border:1px solid var(--border-primary-color);border-radius:var(--radius-sm);padding:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+            <img src="../sources/image3.png" style="height:100%;object-fit:contain;"
+                 onerror="this.src='https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=80&q=60'">
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Info -->
+      <div style="flex:1;min-width:280px;display:flex;flex-direction:column;gap:20px;">
+        <div>
+          <p style="font-size:12px;color:var(--text-muted-color);text-transform:uppercase;letter-spacing:0.8px;">Dell · Laptop</p>
+          <h1 style="font-size:clamp(22px,3vw,34px);margin-top:6px;">Dell XPS 15 (2026)</h1>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+            <span style="color:#f59e0b;font-size:16px;">★★★★★</span>
+            <p style="font-size:13px;">(248 reviews)</p>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:baseline;gap:12px;">
+          <span class="price-tag" style="font-size:32px;">Rs. 289,000</span>
+          <span style="font-size:16px;color:var(--text-muted-color);text-decoration:line-through;">Rs. 320,000</span>
+          <span class="chip" style="background:rgba(239,68,68,0.15);color:#f87171;">-10%</span>
+        </div>
+
+        <p>The Dell XPS 15 redefines portable performance with its stunning OLED display, lightning-fast NVMe SSD, and thin-bezel design. Ideal for creators, developers, and power users.</p>
+
+        <!-- Quantity & Cart -->
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:0;border:1px solid var(--border-primary-color);border-radius:var(--radius-sm);overflow:hidden;">
+            <button class="sm-button" style="border-radius:0;background:transparent;border:none;color:var(--text-primary-color);" onclick="changeQty(-1)">−</button>
+            <span id="qtyDisplay" style="padding:0 18px;font-weight:600;">1</span>
+            <button class="sm-button" style="border-radius:0;background:transparent;border:none;color:var(--text-primary-color);" onclick="changeQty(1)">+</button>
+          </div>
+          <button class="lg-button" onclick="addToCart('Dell XPS 15',289000,1)">🛒 Add to Cart</button>
+          <button class="border-button" onclick="window.location='compare.html'">⚖️ Compare</button>
+        </div>
+
+        <!-- Badges -->
+        <div style="display:flex;flex-wrap:wrap;gap:10px;">
+          <span class="badge">✓ Free Delivery</span>
+          <span class="badge">✓ 2-Year Warranty</span>
+          <span class="badge">✓ Genuine Product</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Specs Table -->
+    <div style="margin-bottom:60px;">
+      <h2 style="margin-bottom:20px;">Full Specifications</h2>
+      <div class="table-container">
+        <table style="min-width:500px;">
+          <thead>
+            <tr><th>Specification</th><th>Details</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Processor</td><td>Intel Core i7-13700H (14-core, up to 5.0 GHz)</td></tr>
+            <tr><td>RAM</td><td>16GB DDR5 4800MHz (expandable to 64GB)</td></tr>
+            <tr><td>Storage</td><td>512GB NVMe SSD PCIe Gen 4 (2 M.2 slots)</td></tr>
+            <tr><td>Display</td><td>15.6" OLED, 3.5K (3456×2160), 120Hz, 400 nits</td></tr>
+            <tr><td>Graphics</td><td>NVIDIA GeForce RTX 4060 8GB GDDR6</td></tr>
+            <tr><td>Battery</td><td>86Wh, up to 13 hours · 130W USB-C Charging</td></tr>
+            <tr><td>Ports</td><td>2× Thunderbolt 4, 1× USB-A 3.2, SD Card, 3.5mm</td></tr>
+            <tr><td>Connectivity</td><td>Wi-Fi 6E (802.11ax), Bluetooth 5.3</td></tr>
+            <tr><td>Operating System</td><td>Windows 11 Home (genuine)</td></tr>
+            <tr><td>Weight</td><td>1.86 kg</td></tr>
+            <tr><td>Dimensions</td><td>344.4 × 230.1 × 18.0 mm</td></tr>
+            <tr><td>Warranty</td><td>2 Years On-Site Service</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Related Products -->
+    <h2 style="margin-bottom:20px;">You May Also Like</h2>
+    <div class="card-container" style="justify-content:flex-start;">
+      <div class="card" style="width:260px;">
+        <div style="padding:24px;display:flex;justify-content:center;background:radial-gradient(circle,rgba(124,58,237,0.08),var(--bg-card));">
+          <img src="../sources/image2.png" style="height:130px;object-fit:contain;"
+               onerror="this.src='https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=300&q=80'">
+        </div>
+        <div class="card-body">
+          <h3>HP Spectre x360</h3>
+          <div class="card-footer-row">
+            <span class="price-tag" style="font-size:16px;">Rs. 349,000</span>
+            <button class="sm-button" onclick="addToCart('HP Spectre x360',349000,2)">Add</button>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="width:260px;">
+        <div style="padding:24px;display:flex;justify-content:center;background:radial-gradient(circle,rgba(14,165,233,0.08),var(--bg-card));">
+          <img src="../sources/image3.png" style="height:130px;object-fit:contain;"
+               onerror="this.src='https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=300&q=80'">
+        </div>
+        <div class="card-body">
+          <h3>ThinkPad X1 Carbon</h3>
+          <div class="card-footer-row">
+            <span class="price-tag" style="font-size:16px;">Rs. 420,000</span>
+            <button class="sm-button" onclick="addToCart('ThinkPad X1 Carbon',420000,3)">Add</button>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="width:260px;">
+        <div style="padding:24px;display:flex;justify-content:center;background:radial-gradient(circle,rgba(239,68,68,0.08),var(--bg-card));">
+          <img src="../sources/image4.png" style="height:130px;object-fit:contain;"
+               onerror="this.src='https://images.unsplash.com/photo-1593640408182-31c228f5de05?w=300&q=80'">
+        </div>
+        <div class="card-body">
+          <h3>ASUS ROG Zephyrus</h3>
+          <div class="card-footer-row">
+            <span class="price-tag" style="font-size:16px;">Rs. 520,000</span>
+            <button class="sm-button" onclick="addToCart('ASUS ROG Zephyrus',520000,4)">Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div>
+        <h1>Lap<span style="color:var(--brand-primary-color);">Elite</span></h1>
+        <p>Pakistan's premium laptop & tech store since 2019.</p>
+      </div>
+      <div>
+        <h2>Quick Links</h2>
+        <a href="products.html">All Products</a>
+        <a href="cart.html">Cart</a>
+        <a href="contact.html">Support</a>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 LapElite Pvt. Ltd. All rights reserved.</p></div>
+  </footer>
+
+  <script src="../jsFile/jsFunctions.js"></script>
+  <script>
+    let qty = 1;
+    function changeQty(d) {
+      qty = Math.max(1, qty + d);
+      document.getElementById('qtyDisplay').textContent = qty;
+    }
+  </script>
+</body>
+</html>

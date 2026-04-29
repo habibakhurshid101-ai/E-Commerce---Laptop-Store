@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up — LapElite</title>
+  <meta name="description" content="Create your LapElite account to start shopping premium laptops with exclusive member benefits.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../cssFile/globalStyles.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="../index.html">Lap<span>Elite</span></a>
+    <ul id="navMenu">
+      <li><a href="../index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="products.html">Products ▾</a>
+        <div class="dropdown-menu">
+          <a href="products.html">All Products</a>
+          <a href="products.html">Laptops</a>
+          <a href="products.html">Desktops</a>
+          <a href="products.html">Workstations</a>
+          <a href="products.html">Accessories</a>
+        </div>
+      </li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button id="themeToggle" onclick="toggleDarkMode()">🌙</button>
+      <a href="cart.html" class="link-button" style="position:relative;">
+        🛒 Cart
+        <span id="cartBadge" style="display:none;position:absolute;top:-6px;right:-6px;background:#ef4444;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;align-items:center;justify-content:center;font-weight:700;">0</span>
+      </a>
+      <a href="login.html" class="link-button">Login</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </nav>
+
+  <!-- SIGNUP PAGE -->
+  <div class="page-centered">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:24px;width:100%;max-width:480px;">
+
+      <div style="text-align:center;">
+        <h2>Create Your Account ✨</h2>
+        <p style="margin-top:6px;">Join 80,000+ satisfied LapElite customers</p>
+      </div>
+
+      <div class="form-container" style="width:100%;">
+        <form id="signupForm" onsubmit="handleSignup(event)">
+
+          <div>
+            <label for="signupName">Full Name</label>
+            <input type="text" id="signupName" placeholder="Ahmed Khan" required autocomplete="name">
+          </div>
+
+          <div>
+            <label for="signupEmail">Email Address</label>
+            <input type="email" id="signupEmail" placeholder="you@example.com" required autocomplete="email">
+          </div>
+
+          <div>
+            <label for="signupPhone">Phone Number</label>
+            <input type="tel" id="signupPhone" placeholder="+92 300 0000000" autocomplete="tel">
+          </div>
+
+          <div>
+            <label for="signupPassword">Password</label>
+            <input type="password" id="signupPassword" placeholder="Min. 6 characters" required autocomplete="new-password">
+          </div>
+
+          <div>
+            <label for="signupConfirm">Confirm Password</label>
+            <input type="password" id="signupConfirm" placeholder="Re-enter password" required autocomplete="new-password">
+          </div>
+
+          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:0;">
+            <input type="checkbox" id="termsCheck" required style="width:auto;margin-top:3px;">
+            <label for="termsCheck" style="font-size:13px;margin-bottom:0;font-weight:400;">
+              I agree to the <a href="#" style="color:var(--text-focus-color);font-weight:600;">Terms of Service</a> and <a href="#" style="color:var(--text-focus-color);font-weight:600;">Privacy Policy</a>
+            </label>
+          </div>
+
+          <div style="margin-top:20px;">
+            <button type="submit" class="lg-button" style="width:100%;">Create Account →</button>
+          </div>
+        </form>
+
+        <div class="divider"></div>
+
+        <div style="text-align:center;">
+          <p style="font-size:13px;">Already have an account?
+            <a href="login.html" style="color:var(--text-focus-color);font-weight:600;">Sign in →</a>
+          </p>
+        </div>
+
+        <div style="margin-top:16px;display:flex;gap:10px;flex-direction:column;">
+          <button class="border-button" style="width:100%;"><span>🔍</span> Sign up with Google</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../jsFile/jsFunctions.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart — LapElite</title>
+  <meta name="description" content="Review your LapElite shopping cart and proceed to checkout.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../cssFile/globalStyles.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html">Lap<span>Elite</span></a>
+    <ul id="navMenu">
+      <li><a href="../index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="products.html">Products ▾</a>
+        <div class="dropdown-menu">
+          <a href="products.html">All Products</a>
+          <a href="products.html">Laptops</a>
+          <a href="products.html">Desktops</a>
+          <a href="products.html">Workstations</a>
+          <a href="products.html">Accessories</a>
+        </div>
+      </li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button id="themeToggle" onclick="toggleDarkMode()">🌙</button>
+      <a href="cart.html" class="link-button active" style="position:relative;">🛒 Cart
+        <span id="cartBadge" style="display:none;position:absolute;top:-6px;right:-6px;background:#ef4444;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;align-items:center;justify-content:center;font-weight:700;">0</span>
+      </a>
+      <a href="login.html" class="link-button">Login</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </nav>
+
+  <div class="page">
+    <h1 style="margin-bottom:8px;">Shopping Cart 🛒</h1>
+    <p style="margin-bottom:36px;">Review your items before checkout</p>
+
+    <div style="display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start;">
+
+      <!-- Cart Table -->
+      <div style="flex:2;min-width:300px;">
+        <div class="table-container">
+          <table id="cartTable" style="min-width:580px;">
+            <thead>
+              <tr><th>Product</th><th>Price</th><th>Quantity</th><th>Subtotal</th><th>Remove</th></tr>
+            </thead>
+            <tbody id="cartTableBody">
+              <tr><td colspan="5" class="table-empty">Your cart is empty. <a href="products.html" style="color:var(--text-focus-color);">Browse products →</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;">
+          <button class="border-button" onclick="window.location='products.html'">← Continue Shopping</button>
+          <button class="border-button sm-button" onclick="clearCart()">Clear Cart</button>
+        </div>
+      </div>
+
+      <!-- Order Summary -->
+      <div class="card" style="width:300px;padding:28px;flex-shrink:0;">
+        <h3>Order Summary</h3>
+        <div style="margin-top:20px;display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;justify-content:space-between;">
+            <p style="font-size:13px;">Subtotal</p>
+            <p id="cartSummary" style="font-size:13px;font-weight:600;">Total: Rs. 0.00</p>
+          </div>
+          <div style="display:flex;justify-content:space-between;">
+            <p style="font-size:13px;">Shipping</p>
+            <p style="font-size:13px;color:#06d6a0;">Free</p>
+          </div>
+          <div style="display:flex;justify-content:space-between;">
+            <p style="font-size:13px;">Tax (17% GST)</p>
+            <p id="taxAmount" style="font-size:13px;">Rs. 0</p>
+          </div>
+          <div style="border-top:1px solid var(--border-primary-color);padding-top:12px;display:flex;justify-content:space-between;">
+            <p style="font-weight:700;">Total</p>
+            <p id="grandTotal" style="font-weight:700;color:var(--brand-primary-color);">Rs. 0</p>
+          </div>
+        </div>
+
+        <div style="margin-top:8px;">
+          <label>Promo Code</label>
+          <div style="display:flex;gap:8px;margin-top:6px;">
+            <input type="text" id="promoCode" placeholder="Enter code">
+            <button class="sm-button" onclick="applyPromo()">Apply</button>
+          </div>
+        </div>
+
+        <button class="lg-button" style="width:100%;margin-top:20px;" onclick="checkout()">Proceed to Checkout →</button>
+        <div style="display:flex;justify-content:center;gap:12px;margin-top:14px;">
+          <span style="font-size:20px;">💳</span>
+          <span style="font-size:20px;">🏦</span>
+          <span style="font-size:20px;">💵</span>
+        </div>
+        <p style="font-size:11px;text-align:center;color:var(--text-muted-color);margin-top:6px;">Secure checkout · 256-bit SSL</p>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div>
+        <h1>Lap<span style="color:var(--brand-primary-color);">Elite</span></h1>
+        <p>Pakistan's premium laptop & tech store since 2019.</p>
+      </div>
+      <div>
+        <h2>Quick Links</h2>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Support</a>
+        <a href="services.html">Services</a>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 LapElite Pvt. Ltd. All rights reserved.</p></div>
+  </footer>
+
+  <script src="../jsFile/jsFunctions.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', renderCart);
+
+    function clearCart() {
+      localStorage.removeItem('lapEliteCart');
+      renderCart();
+      showToast('Cart cleared');
+    }
+
+    function applyPromo() {
+      const code = document.getElementById('promoCode').value.trim().toUpperCase();
+      if (code === 'LAPELITE10') { showToast('10% discount applied! 🎉'); }
+      else { showToast('Invalid promo code.', 'error'); }
+    }
+
+    function checkout() {
+      const cart = getCart();
+      if (cart.length === 0) { showToast('Your cart is empty.', 'error'); return; }
+      showToast('Redirecting to payment… 💳');
+    }
+  </script>
+</body>
+</html>

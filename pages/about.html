@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — LapElite</title>
+  <meta name="description" content="Learn about LapElite — Pakistan's leading laptop store, our mission, team and values.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../cssFile/globalStyles.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html">Lap<span>Elite</span></a>
+    <ul id="navMenu">
+      <li><a href="../index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="products.html">Products ▾</a>
+        <div class="dropdown-menu">
+          <a href="products.html">All Products</a>
+          <a href="products.html">Laptops</a>
+          <a href="products.html">Desktops</a>
+          <a href="products.html">Workstations</a>
+          <a href="products.html">Accessories</a>
+        </div>
+      </li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button id="themeToggle" onclick="toggleDarkMode()">🌙</button>
+      <a href="cart.html" class="link-button" style="position:relative;">🛒 Cart
+        <span id="cartBadge" style="display:none;position:absolute;top:-6px;right:-6px;background:#ef4444;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;align-items:center;justify-content:center;font-weight:700;">0</span>
+      </a>
+      <a href="login.html" class="link-button">Login</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </nav>
+
+  <!-- Hero -->
+  <section style="background:radial-gradient(ellipse at 40% 30%,rgba(26,86,219,0.14),transparent 65%);padding:80px 32px;">
+    <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;gap:48px;align-items:center;">
+      <div style="flex:1;min-width:280px;display:flex;flex-direction:column;gap:20px;">
+        <span class="badge">🏢 Our Story</span>
+        <h1>Pakistan's Most <span class="text-gradient">Trusted</span> Laptop Store</h1>
+        <p>Founded in 2019 in Islamabad, LapElite was born from a simple belief — every Pakistani deserves access to world-class technology at fair prices, backed by genuine support.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <button class="lg-button" onclick="window.location='products.html'">Shop Now</button>
+          <button class="lg-button border-button" onclick="window.location='contact.html'">Contact Us</button>
+        </div>
+      </div>
+      <div style="flex:1;min-width:260px;display:flex;justify-content:flex-end;">
+        <div style="background:radial-gradient(circle,rgba(26,86,219,0.1),var(--bg-card));border:1px solid var(--border-primary-color);border-radius:var(--radius-md);padding:48px;width:100%;max-width:420px;display:flex;align-items:center;justify-content:center;">
+          <img src="../sources/image1.png" alt="LapElite Store"
+               style="max-height:280px;object-fit:contain;"
+               onerror="this.src='https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&q=80'">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page">
+
+    <!-- Stats -->
+    <div class="stats-row reveal" style="margin-bottom:60px;">
+      <div class="stat-item"><h2>2019</h2><p>Year Founded</p></div>
+      <div class="stat-item"><h2>80K+</h2><p>Happy Customers</p></div>
+      <div class="stat-item"><h2>500+</h2><p>Products</p></div>
+      <div class="stat-item"><h2>15+</h2><p>Brands</p></div>
+      <div class="stat-item"><h2>6</h2><p>Cities</p></div>
+    </div>
+
+    <!-- Mission & Values -->
+    <div class="section-header reveal"><h2>Our Values</h2><p>The principles that guide everything we do</p></div>
+    <div class="card-container reveal">
+      <div class="card" style="width:260px;padding:28px;align-items:center;text-align:center;">
+        <div class="icon-circle">💎</div>
+        <div class="card-body" style="align-items:center;">
+          <h3>Authenticity</h3>
+          <p style="font-size:13px;">Every product is 100% genuine with official manufacturer warranty. No grey-market items ever.</p>
+        </div>
+      </div>
+      <div class="card" style="width:260px;padding:28px;align-items:center;text-align:center;">
+        <div class="icon-circle">🤝</div>
+        <div class="card-body" style="align-items:center;">
+          <h3>Transparency</h3>
+          <p style="font-size:13px;">Clear pricing, no hidden fees, honest specs. We say what we mean and stand behind our products.</p>
+        </div>
+      </div>
+      <div class="card" style="width:260px;padding:28px;align-items:center;text-align:center;">
+        <div class="icon-circle">🚀</div>
+        <div class="card-body" style="align-items:center;">
+          <h3>Innovation</h3>
+          <p style="font-size:13px;">Always stocking the latest models, continuously improving our platform and services.</p>
+        </div>
+      </div>
+      <div class="card" style="width:260px;padding:28px;align-items:center;text-align:center;">
+        <div class="icon-circle">❤️</div>
+        <div class="card-body" style="align-items:center;">
+          <h3>Customer First</h3>
+          <p style="font-size:13px;">Our support team is trained to solve problems fast. Your satisfaction is our success metric.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team -->
+    <div class="section-header reveal" style="margin-top:60px;"><h2>Meet the Team</h2><p>The people behind LapElite</p></div>
+    <div class="card-container reveal">
+      <div class="card" style="width:220px;padding:28px;align-items:center;text-align:center;">
+        <div style="width:80px;height:80px;border-radius:50%;background:radial-gradient(circle,rgba(26,86,219,0.2),var(--bg-card));border:2px solid var(--brand-primary-color);display:flex;align-items:center;justify-content:center;font-size:32px;">👨‍💼</div>
+        <div class="card-body" style="align-items:center;">
+          <h3>Usman Tariq</h3>
+          <p style="font-size:12px;color:var(--brand-primary-color);">Founder & CEO</p>
+          <p style="font-size:12px;">10+ yrs in tech retail. Former Dell Pakistan country manager.</p>
+        </div>
+      </div>
+      <div class="card" style="width:220px;padding:28px;align-items:center;text-align:center;">
+        <div style="width:80px;height:80px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,0.2),var(--bg-card));border:2px solid var(--brand-secondary-color);display:flex;align-items:center;justify-content:center;font-size:32px;">👩‍💻</div>
+        <div class="card-body" style="align-items:center;">
+          <h3>Sana Malik</h3>
+          <p style="font-size:12px;color:var(--brand-secondary-color);">Head of Technology</p>
+          <p style="font-size:12px;">Full-stack engineer with expertise in e-commerce infrastructure.</p>
+        </div>
+      </div>
+      <div class="card" style="width:220px;padding:28px;align-items:center;text-align:center;">
+        <div style="width:80px;height:80px;border-radius:50%;background:radial-gradient(circle,rgba(14,165,233,0.2),var(--bg-card));border:2px solid var(--brand-third-color);display:flex;align-items:center;justify-content:center;font-size:32px;">👨‍🔧</div>
+        <div class="card-body" style="align-items:center;">
+          <h3>Ali Raza</h3>
+          <p style="font-size:12px;color:var(--brand-third-color);">Service Manager</p>
+          <p style="font-size:12px;">Certified technician with 8 years of laptop repair experience.</p>
+        </div>
+      </div>
+      <div class="card" style="width:220px;padding:28px;align-items:center;text-align:center;">
+        <div style="width:80px;height:80px;border-radius:50%;background:radial-gradient(circle,rgba(6,214,160,0.2),var(--bg-card));border:2px solid var(--brand-accent-color);display:flex;align-items:center;justify-content:center;font-size:32px;">👩‍🎨</div>
+        <div class="card-body" style="align-items:center;">
+          <h3>Hira Baig</h3>
+          <p style="font-size:12px;color:var(--brand-accent-color);">Marketing Lead</p>
+          <p style="font-size:12px;">Brand strategist who grew LapElite's social presence to 200K+.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Join CTA -->
+    <div class="section reveal" style="padding:60px 0 0;">
+      <div class="newsletter-strip">
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <h2>Join the LapElite Family</h2>
+          <p>Shop smarter, get exclusive member deals, and expert support — always.</p>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <button class="lg-button" onclick="window.location='signup.html'">Create Account →</button>
+          <button class="lg-button border-button" onclick="window.location='products.html'">Browse Products</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div>
+        <h1>Lap<span style="color:var(--brand-primary-color);">Elite</span></h1>
+        <p>Pakistan's premium laptop & tech store since 2019.</p>
+      </div>
+      <div>
+        <h2>Quick Links</h2>
+        <a href="../index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 LapElite Pvt. Ltd. All rights reserved.</p></div>
+  </footer>
+
+  <script src="../jsFile/jsFunctions.js"></script>
+</body>
+</html>

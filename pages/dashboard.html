@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — LapElite</title>
+  <meta name="description" content="Manage your LapElite orders, track shipments and update your account details.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../cssFile/globalStyles.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html">Lap<span>Elite</span></a>
+    <ul id="navMenu">
+      <li><a href="../index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="products.html">Products ▾</a>
+        <div class="dropdown-menu">
+          <a href="products.html">All Products</a>
+          <a href="products.html">Laptops</a>
+          <a href="products.html">Desktops</a>
+          <a href="products.html">Workstations</a>
+          <a href="products.html">Accessories</a>
+        </div>
+      </li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button id="themeToggle" onclick="toggleDarkMode()">🌙</button>
+      <a href="cart.html" class="link-button" style="position:relative;">🛒 Cart
+        <span id="cartBadge" style="display:none;position:absolute;top:-6px;right:-6px;background:#ef4444;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;align-items:center;justify-content:center;font-weight:700;">0</span>
+      </a>
+      <a href="login.html" class="link-button">Logout</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </nav>
+
+  <div class="page">
+    <!-- Welcome -->
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:40px;">
+      <div>
+        <h1>My Dashboard</h1>
+        <p style="margin-top:4px;">Welcome back, <strong id="dashUserName" style="color:var(--text-focus-color);">Ahmed</strong> 👋</p>
+      </div>
+      <button onclick="window.location='products.html'">Shop Now →</button>
+    </div>
+
+    <!-- Stat Cards -->
+    <div class="card-container" style="justify-content:flex-start;margin:0 0 40px 0;">
+      <div class="card" style="width:220px;padding:24px;flex-direction:row;align-items:center;gap:16px;">
+        <div class="icon-circle" style="width:52px;height:52px;font-size:22px;">📦</div>
+        <div><h3 style="font-size:28px;">7</h3><p style="font-size:13px;">Total Orders</p></div>
+      </div>
+      <div class="card" style="width:220px;padding:24px;flex-direction:row;align-items:center;gap:16px;">
+        <div class="icon-circle" style="width:52px;height:52px;font-size:22px;">❤️</div>
+        <div><h3 style="font-size:28px;">12</h3><p style="font-size:13px;">Wishlist Items</p></div>
+      </div>
+      <div class="card" style="width:220px;padding:24px;flex-direction:row;align-items:center;gap:16px;">
+        <div class="icon-circle" style="width:52px;height:52px;font-size:22px;">💰</div>
+        <div><h3 style="font-size:28px;">Rs.8.4L</h3><p style="font-size:13px;">Total Spent</p></div>
+      </div>
+      <div class="card" style="width:220px;padding:24px;flex-direction:row;align-items:center;gap:16px;">
+        <div class="icon-circle" style="width:52px;height:52px;font-size:22px;">🛡️</div>
+        <div><h3 style="font-size:28px;">3</h3><p style="font-size:13px;">Active Warranties</p></div>
+      </div>
+    </div>
+
+    <!-- Orders Table -->
+    <div style="margin-bottom:48px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+        <h2>Recent Orders</h2>
+        <button class="border-button sm-button">View All</button>
+      </div>
+      <div class="table-container">
+        <table style="min-width:680px;">
+          <thead>
+            <tr><th>Order ID</th><th>Product</th><th>Date</th><th>Amount</th><th>Status</th><th>Action</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#LE-20261</td><td>Dell XPS 15 (i7, 16GB)</td><td>Apr 20, 2026</td><td>Rs. 289,000</td>
+              <td><span class="chip" style="background:rgba(6,214,160,0.15);color:#06d6a0;">Delivered</span></td>
+              <td><a href="product-details.html" style="color:var(--text-focus-color);font-size:13px;">View →</a></td>
+            </tr>
+            <tr>
+              <td>#LE-20255</td><td>HP Spectre x360 (i9)</td><td>Apr 14, 2026</td><td>Rs. 349,000</td>
+              <td><span class="chip" style="background:rgba(26,86,219,0.15);color:#60a5fa;">Shipped</span></td>
+              <td><a href="product-details.html" style="color:var(--text-focus-color);font-size:13px;">Track →</a></td>
+            </tr>
+            <tr>
+              <td>#LE-20243</td><td>Logitech MX Master 3S</td><td>Apr 10, 2026</td><td>Rs. 18,500</td>
+              <td><span class="chip" style="background:rgba(6,214,160,0.15);color:#06d6a0;">Delivered</span></td>
+              <td><a href="product-details.html" style="color:var(--text-focus-color);font-size:13px;">View →</a></td>
+            </tr>
+            <tr>
+              <td>#LE-20238</td><td>ASUS ROG Zephyrus G14</td><td>Mar 28, 2026</td><td>Rs. 520,000</td>
+              <td><span class="chip" style="background:rgba(239,68,68,0.15);color:#f87171;">Cancelled</span></td>
+              <td><a href="product-details.html" style="color:var(--text-focus-color);font-size:13px;">Reorder →</a></td>
+            </tr>
+            <tr>
+              <td>#LE-20211</td><td>Lenovo ThinkPad X1</td><td>Mar 15, 2026</td><td>Rs. 420,000</td>
+              <td><span class="chip" style="background:rgba(6,214,160,0.15);color:#06d6a0;">Delivered</span></td>
+              <td><a href="product-details.html" style="color:var(--text-focus-color);font-size:13px;">View →</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Account & Address -->
+    <div style="display:flex;flex-wrap:wrap;gap:24px;">
+      <div class="card" style="width:340px;padding:28px;">
+        <h3>Account Details</h3>
+        <div style="margin-top:20px;display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid var(--border-muted-color);">
+            <p style="font-size:13px;color:var(--text-muted-color);">Full Name</p><p style="font-size:13px;">Ahmed Khan</p>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid var(--border-muted-color);">
+            <p style="font-size:13px;color:var(--text-muted-color);">Email</p><p style="font-size:13px;">ahmed@example.com</p>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid var(--border-muted-color);">
+            <p style="font-size:13px;color:var(--text-muted-color);">Phone</p><p style="font-size:13px;">+92 300 1234567</p>
+          </div>
+          <div style="display:flex;justify-content:space-between;">
+            <p style="font-size:13px;color:var(--text-muted-color);">Member Since</p><p style="font-size:13px;">Jan 2024</p>
+          </div>
+        </div>
+        <div style="margin-top:20px;"><button class="border-button sm-button" style="width:100%;">Edit Profile</button></div>
+      </div>
+
+      <div class="card" style="width:340px;padding:28px;">
+        <h3>Shipping Address</h3>
+        <div style="margin-top:20px;display:flex;flex-direction:column;gap:10px;">
+          <p style="font-size:14px;">Ahmed Khan</p>
+          <p style="font-size:13px;">House #42, Street 7, F-8/4</p>
+          <p style="font-size:13px;">Islamabad, Punjab 44000, Pakistan</p>
+          <p style="font-size:13px;">+92 300 1234567</p>
+        </div>
+        <div style="margin-top:20px;display:flex;gap:10px;">
+          <button class="border-button sm-button">Edit</button>
+          <button class="sm-button">+ Add New</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div>
+        <h1>Lap<span style="color:var(--brand-primary-color);">Elite</span></h1>
+        <p>Pakistan's premium laptop & tech store since 2019.</p>
+      </div>
+      <div>
+        <h2>Quick Links</h2>
+        <a href="../index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 LapElite Pvt. Ltd. All rights reserved.</p></div>
+  </footer>
+
+  <script src="../jsFile/jsFunctions.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const user = JSON.parse(localStorage.getItem('lapEliteUser') || '{}');
+      const el = document.getElementById('dashUserName');
+      if (el && user.name) el.textContent = user.name.split(' ')[0];
+    });
+  </script>
+</body>
+</html>

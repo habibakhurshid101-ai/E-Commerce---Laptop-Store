@@ -200,25 +200,36 @@ function renderCart() {
   tbody.innerHTML = '';
   if (cart.length === 0) {
     tbody.innerHTML = '<tr><td colspan="5" class="table-empty">Your cart is empty.</td></tr>';
-    if (summary) summary.textContent = 'Total: $0.00';
+    if (summary) summary.textContent = 'Rs. 0';
+    const taxEl   = document.getElementById('taxAmount');
+    const grandEl = document.getElementById('grandTotal');
+    if (taxEl)   taxEl.textContent   = 'Rs. 0';
+    if (grandEl) grandEl.textContent = 'Rs. 0';
     return;
   }
   cart.forEach(item => {
     const tr = document.createElement('tr');
     tr.innerHTML = `
       <td>${item.name}</td>
-      <td>$${item.price.toFixed(2)}</td>
+      <td>Rs. ${item.price.toLocaleString()}</td>
       <td style="white-space:nowrap;">
         <button class="sm-button border-button" onclick="updateQty(${item.id},-1);renderCart()">−</button>
         <span style="margin:0 10px;">${item.qty}</span>
         <button class="sm-button border-button" onclick="updateQty(${item.id},1);renderCart()">+</button>
       </td>
-      <td>$${(item.price * item.qty).toFixed(2)}</td>
+      <td>Rs. ${(item.price * item.qty).toLocaleString()}</td>
       <td><button class="tiny-button" style="background:#dc2626;" onclick="removeFromCart(${item.id});renderCart()">Remove</button></td>
     `;
     tbody.appendChild(tr);
   });
-  if (summary) summary.textContent = `Total: $${getCartTotal().toFixed(2)}`;
+  const subtotal = getCartTotal();
+  const tax      = Math.round(subtotal * 0.17);
+  const grand    = subtotal + tax;
+  if (summary) summary.textContent = `Rs. ${subtotal.toLocaleString()}`;
+  const taxEl   = document.getElementById('taxAmount');
+  const grandEl = document.getElementById('grandTotal');
+  if (taxEl)   taxEl.textContent   = `Rs. ${tax.toLocaleString()}`;
+  if (grandEl) grandEl.textContent = `Rs. ${grand.toLocaleString()}`;
 }
 
 /* ---------------------------------------------------------

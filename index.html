@@ -34,9 +34,9 @@
     <div class="nav-actions">
       <button id="themeToggle" onclick="toggleDarkMode()">🌙</button>
       <a href="pages/compare.html" class="link-button">⚖️ Compare</a>
-      <a href="pages/cart.html" class="link-button" style="position:relative;">
+      <a href="pages/cart.html" class="link-button">
         🛒 Cart
-        <span id="cartBadge" style="display:none;position:absolute;top:-6px;right:-6px;background:#ef4444;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;align-items:center;justify-content:center;font-weight:700;">0</span>
+        <span id="cartBadge">0</span>
       </a>
       <a href="pages/login.html" class="link-button">Login</a>
     </div>
@@ -47,7 +47,7 @@
   </nav>
 
   <!-- ===================== HERO ===================== -->
-  <section style="background:radial-gradient(ellipse at 60% 40%, rgba(26,86,219,0.13) 0%, transparent 65%);">
+  <section>
     <div class="hero">
       <div class="hero-content">
         <span class="badge">✦ New 2026 Collection — Just Arrived</span>
@@ -57,15 +57,15 @@
           <button class="lg-button" onclick="window.location='pages/products.html'">Shop Now →</button>
           <button class="lg-button border-button" onclick="window.location='pages/compare.html'">Compare Models</button>
         </div>
-        <div style="display:flex;gap:28px;margin-top:16px;flex-wrap:wrap;">
-          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-muted-color);">
-            <span style="color:#06d6a0;font-size:16px;">✓</span> Free Shipping Over Rs.50,000
+        <div>
+          <div>
+            <span>✓</span> Free Shipping Over Rs.50,000
           </div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-muted-color);">
-            <span style="color:#06d6a0;font-size:16px;">✓</span> 2-Year Warranty
+          <div>
+            <span>✓</span> 2-Year Warranty
           </div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-muted-color);">
-            <span style="color:#06d6a0;font-size:16px;">✓</span> 24/7 Support
+          <div>
+            <span>✓</span> 24/7 Support
           </div>
         </div>
       </div>
@@ -77,7 +77,7 @@
   </section>
 
   <!-- ===================== CATEGORY STRIP ===================== -->
- <section class="section reveal">
+ <section class="section reveal category-section">
   <div class="section-header">
     <h2>Shop by Category</h2>
     <p>Find the perfect machine for your needs</p>
@@ -86,56 +86,56 @@
   <div class="card-container">
 
     <!-- Laptops -->
-    <div class="card" style="width:180px;cursor:pointer;padding:24px 16px;text-align:center;" onclick="window.location='pages/products.html'">
-      <img src="/sources/img2.png" style="width:60px;height:60px;" />
+    <div class="card" onclick="window.location='pages/products.html'">
+      <img src="/sources/img2.png" />
       <div class="card-body">
         <h4>Laptops</h4>
-        <p style="font-size:12px;">From Rs.55,000</p>
+        <p>From Rs.55,000</p>
       </div>
     </div>
 
     <!-- Desktops -->
-    <div class="card" style="width:180px;cursor:pointer;padding:24px 16px;text-align:center;" onclick="window.location='pages/products.html'">
-      <img src="/sources/img3.png" style="width:60px;height:60px;" />
+    <div class="card" onclick="window.location='pages/products.html'">
+      <img src="/sources/img3.png" />
       <div class="card-body">
         <h4>Desktops</h4>
-        <p style="font-size:12px;">From Rs.80,000</p>
+        <p>From Rs.80,000</p>
       </div>
     </div>
 
     <!-- Workstations -->
-    <div class="card" style="width:180px;cursor:pointer;padding:24px 16px;text-align:center;" onclick="window.location='pages/products.html'">
-      <img src="/sources/img4.png" style="width:60px;height:60px;" />
+    <div class="card" onclick="window.location='pages/products.html'">
+      <img src="/sources/img4.png" />
       <div class="card-body">
         <h4>Workstations</h4>
-        <p style="font-size:12px;">From Rs.150,000</p>
+        <p>From Rs.150,000</p>
       </div>
     </div>
 
     <!-- Accessories -->
-    <div class="card" style="width:180px;cursor:pointer;padding:24px 16px;text-align:center;" onclick="window.location='pages/products.html'">
-      <img src="/sources/img5.png" style="width:60px;height:60px;" />
+    <div class="card" onclick="window.location='pages/products.html'">
+      <img src="/sources/img5.png" />
       <div class="card-body">
         <h4>Accessories</h4>
-        <p style="font-size:12px;">From Rs.2,500</p>
+        <p>From Rs.2,500</p>
       </div>
     </div>
 
     <!-- Gaming -->
-    <div class="card" style="width:180px;cursor:pointer;padding:24px 16px;text-align:center;" onclick="window.location='pages/products.html'">
-      <img src="/sources/img6.png" style="width:60px;height:60px;" />
+    <div class="card" onclick="window.location='pages/products.html'">
+      <img src="/sources/img6.png" />
       <div class="card-body">
         <h4>Gaming</h4>
-        <p style="font-size:12px;">From Rs.120,000</p>
+        <p>From Rs.120,000</p>
       </div>
     </div>
 
-    <!-- Support Plans (FIXED) -->
-    <div class="card" style="width:180px;cursor:pointer;padding:24px 16px;text-align:center;" onclick="window.location='pages/services.html'">
-      <img src="/sources/img7.png" style="width:60px;height:60px;" />
+    <!-- Support Plans -->
+    <div class="card" onclick="window.location='pages/services.html'">
+      <img src="/sources/img7.png" />
       <div class="card-body">
         <h4>Support Plans</h4>
-        <p style="font-size:12px;">From Rs.5,000/yr</p>
+        <p>From Rs.5,000/yr</p>
       </div>
     </div>
 
@@ -143,22 +143,22 @@
 </section>
 
   <!-- ===================== FEATURED PRODUCTS ===================== -->
-  <section class="section reveal" style="background:var(--bg-card);border-top:1px solid var(--border-muted-color);border-bottom:1px solid var(--border-muted-color);">
+  <section class="section reveal featured-section">
     <div class="section-header">
       <h2>Featured Laptops</h2>
       <p>Top-rated machines engineered for excellence</p>
     </div>
     <div class="card-container">
 
-      <div class="card" style="width:300px;">
-        <div style="background:radial-gradient(circle,rgba(26,86,219,0.08),var(--bg-card));padding:32px;display:flex;justify-content:center;position:relative;">
-          <img src="/sources/img8.png" alt="Dell XPS 15" style="height:160px;object-fit:contain;"
+      <div class="card">
+        <div class="card-img" data-grad="blue">
+          <img src="/sources/img8.png" alt="Dell XPS 15"
                onerror="this.src='https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&q=80'">
-          <span class="chip" style="position:absolute;top:12px;right:12px;background:#06d6a0;color:#000;">Bestseller</span>
+          <span class="chip" data-color="green">Bestseller</span>
         </div>
         <div class="card-body">
           <h3>Dell XPS 15</h3>
-          <p style="font-size:13px;">Intel Core i7-13700H · 16GB RAM · 512GB NVMe SSD</p>
+          <p>Intel Core i7-13700H · 16GB RAM · 512GB NVMe SSD</p>
           <div class="card-footer-row">
             <span class="price-tag">Rs. 289,000</span>
             <button class="sm-button" onclick="addToCart('Dell XPS 15',289000,1)">Add to Cart</button>
@@ -166,15 +166,15 @@
         </div>
       </div>
 
-      <div class="card" style="width:300px;">
-        <div style="background:radial-gradient(circle,rgba(124,58,237,0.08),var(--bg-card));padding:32px;display:flex;justify-content:center;position:relative;">
-          <img src="/sources/img9.png" alt="HP Spectre x360" style="height:160px;object-fit:contain;"
+      <div class="card">
+        <div class="card-img" data-grad="purple">
+          <img src="/sources/img9.png" alt="HP Spectre x360"
                onerror="this.src='https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&q=80'">
-          <span class="chip" style="position:absolute;top:12px;right:12px;background:#7c3aed;color:#fff;">Pro</span>
+          <span class="chip" data-color="purple">Pro</span>
         </div>
         <div class="card-body">
           <h3>HP Spectre x360</h3>
-          <p style="font-size:13px;">Intel Core i9 · 32GB RAM · 1TB NVMe SSD</p>
+          <p>Intel Core i9 · 32GB RAM · 1TB NVMe SSD</p>
           <div class="card-footer-row">
             <span class="price-tag">Rs. 349,000</span>
             <button class="sm-button" onclick="addToCart('HP Spectre x360',349000,2)">Add to Cart</button>
@@ -182,15 +182,15 @@
         </div>
       </div>
 
-      <div class="card" style="width:300px;">
-        <div style="background:radial-gradient(circle,rgba(14,165,233,0.08),var(--bg-card));padding:32px;display:flex;justify-content:center;position:relative;">
-          <img src="/sources/img10.png" alt="Lenovo ThinkPad X1" style="height:160px;object-fit:contain;"
+      <div class="card">
+        <div class="card-img" data-grad="sky">
+          <img src="/sources/img10.png" alt="Lenovo ThinkPad X1"
                onerror="this.src='https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=400&q=80'">
-          <span class="chip" style="position:absolute;top:12px;right:12px;background:#0ea5e9;color:#000;">New</span>
+          <span class="chip" data-color="sky">New</span>
         </div>
         <div class="card-body">
           <h3>Lenovo ThinkPad X1</h3>
-          <p style="font-size:13px;">AMD Ryzen 9 · 32GB RAM · 1TB SSD · 4K OLED</p>
+          <p>AMD Ryzen 9 · 32GB RAM · 1TB SSD · 4K OLED</p>
           <div class="card-footer-row">
             <span class="price-tag">Rs. 420,000</span>
             <button class="sm-button" onclick="addToCart('Lenovo ThinkPad X1',420000,3)">Add to Cart</button>
@@ -198,15 +198,15 @@
         </div>
       </div>
 
-      <div class="card" style="width:300px;">
-        <div style="background:radial-gradient(circle,rgba(6,214,160,0.08),var(--bg-card));padding:32px;display:flex;justify-content:center;position:relative;">
-          <img src="/sources/img11.png" alt="ASUS ROG Zephyrus" style="height:160px;object-fit:contain;"
+      <div class="card">
+        <div class="card-img" data-grad="green">
+          <img src="/sources/img11.png" alt="ASUS ROG Zephyrus"
                onerror="this.src='https://images.unsplash.com/photo-1593640408182-31c228f5de05?w=400&q=80'">
-          <span class="chip" style="position:absolute;top:12px;right:12px;background:#ef4444;color:#fff;">Sale</span>
+          <span class="chip" data-color="red">Sale</span>
         </div>
         <div class="card-body">
           <h3>ASUS ROG Zephyrus</h3>
-          <p style="font-size:13px;">AMD Ryzen 9 · RTX 4080 · 32GB RAM · 2TB SSD</p>
+          <p>AMD Ryzen 9 · RTX 4080 · 32GB RAM · 2TB SSD</p>
           <div class="card-footer-row">
             <span class="price-tag">Rs. 520,000</span>
             <button class="sm-button" onclick="addToCart('ASUS ROG Zephyrus',520000,4)">Add to Cart</button>
@@ -215,7 +215,7 @@
       </div>
 
     </div>
-    <div style="text-align:center;margin-top:16px;">
+    <div>
       <button class="border-button" onclick="window.location='pages/products.html'">View All Products →</button>
     </div>
   </section>
@@ -247,35 +247,35 @@
   </section>
 
   <!-- ===================== WHY LAPELITE ===================== -->
-  <section class="section reveal">
+  <section class="section reveal why-section">
     <div class="section-header">
       <h2>Why Choose LapElite?</h2>
       <p>We deliver more than hardware — we deliver confidence</p>
     </div>
     <div class="card-container">
-      <div class="card" style="width:260px;padding:32px;align-items:center;text-align:center;border:none;background:transparent;">
+      <div class="card">
         <div class="icon-circle">🚀</div>
-        <div style="height:12px;"></div>
+        <div></div>
         <h3>Latest Models</h3>
-        <p style="margin-top:8px;font-size:13px;">2025-2026 flagship laptops from every top brand — always in stock.</p>
+        <p>2025-2026 flagship laptops from every top brand — always in stock.</p>
       </div>
-      <div class="card" style="width:260px;padding:32px;align-items:center;text-align:center;border:none;background:transparent;">
+      <div class="card">
         <div class="icon-circle">💎</div>
-        <div style="height:12px;"></div>
+        <div></div>
         <h3>Genuine Products</h3>
-        <p style="margin-top:8px;font-size:13px;">100% authentic, manufacturer-sealed laptops with official warranty.</p>
+        <p>100% authentic, manufacturer-sealed laptops with official warranty.</p>
       </div>
-      <div class="card" style="width:260px;padding:32px;align-items:center;text-align:center;border:none;background:transparent;">
+      <div class="card">
         <div class="icon-circle">🛡️</div>
-        <div style="height:12px;"></div>
+        <div></div>
         <h3>2-Year Warranty</h3>
-        <p style="margin-top:8px;font-size:13px;">Every product covered with comprehensive warranty and on-site service.</p>
+        <p>Every product covered with comprehensive warranty and on-site service.</p>
       </div>
-      <div class="card" style="width:260px;padding:32px;align-items:center;text-align:center;border:none;background:transparent;">
+      <div class="card">
         <div class="icon-circle">🎧</div>
-        <div style="height:12px;"></div>
+        <div></div>
         <h3>24/7 Support</h3>
-        <p style="margin-top:8px;font-size:13px;">Expert tech team ready via chat, phone, or walk-in service center.</p>
+        <p>Expert tech team ready via chat, phone, or walk-in service center.</p>
       </div>
     </div>
   </section>
@@ -283,7 +283,7 @@
   <!-- ===================== NEWSLETTER ===================== -->
   <section class="section reveal">
     <div class="newsletter-strip">
-      <div style="display:flex;flex-direction:column;gap:8px;">
+      <div>
         <h2>Stay Ahead of the Curve</h2>
         <p>Exclusive deals, new arrivals, and tech insights — delivered weekly.</p>
       </div>
@@ -298,13 +298,13 @@
   <footer>
     <div class="footer-container">
       <div>
-        <h1>Lap<span style="color:var(--brand-primary-color);">Elite</span></h1>
+        <h1>Lap<span>Elite</span></h1>
         <p>Pakistan's premium laptop & tech store since 2019.</p>
-        <div style="display:flex;gap:12px;margin-top:8px;">
-          <a href="#" style="font-size:20px;">𝕏</a>
-          <a href="#" style="font-size:20px;">in</a>
-          <a href="#" style="font-size:20px;">📘</a>
-          <a href="#" style="font-size:20px;">📸</a>
+        <div class="social-links">
+          <a href="#">𝕏</a>
+          <a href="#">in</a>
+          <a href="#">📘</a>
+          <a href="#">📸</a>
         </div>
       </div>
       <div>

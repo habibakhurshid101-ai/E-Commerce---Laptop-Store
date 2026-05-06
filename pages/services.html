@@ -29,8 +29,8 @@
     </ul>
     <div class="nav-actions">
       <button id="themeToggle" onclick="toggleDarkMode()">🌙</button>
-      <a href="cart.html" class="link-button" style="position:relative;">🛒 Cart
-        <span id="cartBadge" style="display:none;position:absolute;top:-6px;right:-6px;background:#ef4444;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;align-items:center;justify-content:center;font-weight:700;">0</span>
+      <a href="cart.html" class="link-button">🛒 Cart
+        <span id="cartBadge">0</span>
       </a>
       <a href="login.html" class="link-button">Login</a>
     </div>
@@ -40,8 +40,8 @@
   </nav>
 
   <!-- Hero -->
-  <section style="background:radial-gradient(ellipse at 50% 0%,rgba(26,86,219,0.15),transparent 60%);padding:80px 32px;text-align:center;">
-    <div style="max-width:680px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:16px;">
+  <section class="page-hero centered">
+    <div>
       <span class="badge">⚙️ Premium Services</span>
       <h1>Tech Support You Can <span class="text-gradient">Trust</span></h1>
       <p>From warranty coverage to expert repairs and cloud solutions — we keep your tech running at its best.</p>
@@ -58,97 +58,97 @@
     </div>
     <div class="card-container reveal">
 
-      <div class="card" style="width:280px;padding:32px;align-items:center;text-align:center;">
-        <div class="icon-circle" style="font-size:32px;">🛡️</div>
-        <div class="card-body" style="align-items:center;">
+      <div class="card service-card">
+        <div class="icon-circle">🛡️</div>
+        <div class="card-body">
           <h3>Warranty Plans</h3>
-          <p style="font-size:13px;">Extended 2–4 year warranty plans with on-site service and accidental damage coverage.</p>
-          <div style="margin-top:8px;display:flex;flex-direction:column;gap:4px;width:100%;">
-            <p style="font-size:12px;color:var(--text-muted-color);">Basic — Rs. 5,000/yr</p>
-            <p style="font-size:12px;color:var(--text-muted-color);">Pro — Rs. 12,000/yr</p>
-            <p style="font-size:12px;color:var(--brand-primary-color);">Elite — Rs. 22,000/yr</p>
+          <p>Extended 2–4 year warranty plans with on-site service and accidental damage coverage.</p>
+          <div class="service-prices">
+            <p>Basic — Rs. 5,000/yr</p>
+            <p>Pro — Rs. 12,000/yr</p>
+            <p class="highlight">Elite — Rs. 22,000/yr</p>
           </div>
-          <button class="sm-button" style="margin-top:12px;" onclick="showToast('Warranty plan request sent!')">Get Plan</button>
+          <button class="sm-button" onclick="showToast('Warranty plan request sent!')">Get Plan</button>
         </div>
       </div>
 
-      <div class="card" style="width:280px;padding:32px;align-items:center;text-align:center;">
-        <div class="icon-circle" style="font-size:32px;">🔧</div>
-        <div class="card-body" style="align-items:center;">
+      <div class="card service-card">
+        <div class="icon-circle">🔧</div>
+        <div class="card-body">
           <h3>Repair Services</h3>
-          <p style="font-size:13px;">Certified technicians for screen replacement, battery, motherboard and liquid damage repairs.</p>
-          <div style="margin-top:8px;display:flex;flex-direction:column;gap:4px;width:100%;">
-            <p style="font-size:12px;color:var(--text-muted-color);">Screen Replacement from Rs. 8,000</p>
-            <p style="font-size:12px;color:var(--text-muted-color);">Battery from Rs. 4,500</p>
-            <p style="font-size:12px;color:var(--text-muted-color);">Diagnostics — Free</p>
+          <p>Certified technicians for screen replacement, battery, motherboard and liquid damage repairs.</p>
+          <div class="service-prices">
+            <p>Screen Replacement from Rs. 8,000</p>
+            <p>Battery from Rs. 4,500</p>
+            <p>Diagnostics — Free</p>
           </div>
-          <button class="sm-button" style="margin-top:12px;" onclick="showToast('Repair request submitted!')">Book Repair</button>
+          <button class="sm-button" onclick="showToast('Repair request submitted!')">Book Repair</button>
         </div>
       </div>
 
-      <div class="card" style="width:280px;padding:32px;align-items:center;text-align:center;">
-        <div class="icon-circle" style="font-size:32px;">☁️</div>
-        <div class="card-body" style="align-items:center;">
+      <div class="card service-card">
+        <div class="icon-circle">☁️</div>
+        <div class="card-body">
           <h3>Cloud Backup</h3>
-          <p style="font-size:13px;">Secure cloud backup and recovery solutions. Never lose your data again with automated daily backups.</p>
-          <div style="margin-top:8px;display:flex;flex-direction:column;gap:4px;width:100%;">
-            <p style="font-size:12px;color:var(--text-muted-color);">100GB — Rs. 2,000/yr</p>
-            <p style="font-size:12px;color:var(--text-muted-color);">1TB — Rs. 6,500/yr</p>
-            <p style="font-size:12px;color:var(--brand-primary-color);">5TB — Rs. 14,000/yr</p>
+          <p>Secure cloud backup and recovery solutions. Never lose your data again with automated daily backups.</p>
+          <div class="service-prices">
+            <p>100GB — Rs. 2,000/yr</p>
+            <p>1TB — Rs. 6,500/yr</p>
+            <p class="highlight">5TB — Rs. 14,000/yr</p>
           </div>
-          <button class="sm-button" style="margin-top:12px;" onclick="showToast('Cloud plan activated!')">Start Backup</button>
+          <button class="sm-button" onclick="showToast('Cloud plan activated!')">Start Backup</button>
         </div>
       </div>
 
-      <div class="card" style="width:280px;padding:32px;align-items:center;text-align:center;">
-        <div class="icon-circle" style="font-size:32px;">💻</div>
-        <div class="card-body" style="align-items:center;">
+      <div class="card service-card">
+        <div class="icon-circle">💻</div>
+        <div class="card-body">
           <h3>IT Consulting</h3>
-          <p style="font-size:13px;">Expert guidance for business IT infrastructure, hardware procurement, and network setup.</p>
-          <div style="margin-top:8px;display:flex;flex-direction:column;gap:4px;width:100%;">
-            <p style="font-size:12px;color:var(--text-muted-color);">1-hr session — Rs. 3,500</p>
-            <p style="font-size:12px;color:var(--text-muted-color);">Monthly retainer from Rs. 25,000</p>
+          <p>Expert guidance for business IT infrastructure, hardware procurement, and network setup.</p>
+          <div class="service-prices">
+            <p>1-hr session — Rs. 3,500</p>
+            <p>Monthly retainer from Rs. 25,000</p>
           </div>
-          <button class="sm-button" style="margin-top:12px;" onclick="showToast('Consultation request sent!')">Book Session</button>
+          <button class="sm-button" onclick="showToast('Consultation request sent!')">Book Session</button>
         </div>
       </div>
 
-      <div class="card" style="width:280px;padding:32px;align-items:center;text-align:center;">
-        <div class="icon-circle" style="font-size:32px;">🚀</div>
-        <div class="card-body" style="align-items:center;">
+      <div class="card service-card">
+        <div class="icon-circle">🚀</div>
+        <div class="card-body">
           <h3>Setup & Configuration</h3>
-          <p style="font-size:13px;">Professional OS installation, driver setup, software configuration and data migration services.</p>
-          <div style="margin-top:8px;display:flex;flex-direction:column;gap:4px;width:100%;">
-            <p style="font-size:12px;color:var(--text-muted-color);">Basic setup — Rs. 2,000</p>
-            <p style="font-size:12px;color:var(--text-muted-color);">Data migration — Rs. 3,500</p>
+          <p>Professional OS installation, driver setup, software configuration and data migration services.</p>
+          <div class="service-prices">
+            <p>Basic setup — Rs. 2,000</p>
+            <p>Data migration — Rs. 3,500</p>
           </div>
-          <button class="sm-button" style="margin-top:12px;" onclick="showToast('Setup request submitted!')">Book Now</button>
+          <button class="sm-button" onclick="showToast('Setup request submitted!')">Book Now</button>
         </div>
       </div>
 
-      <div class="card" style="width:280px;padding:32px;align-items:center;text-align:center;">
-        <div class="icon-circle" style="font-size:32px;">🎧</div>
-        <div class="card-body" style="align-items:center;">
+      <div class="card service-card">
+        <div class="icon-circle">🎧</div>
+        <div class="card-body">
           <h3>24/7 Remote Support</h3>
-          <p style="font-size:13px;">Round-the-clock remote assistance via phone, chat or remote desktop for all technical issues.</p>
-          <div style="margin-top:8px;display:flex;flex-direction:column;gap:4px;width:100%;">
-            <p style="font-size:12px;color:var(--text-muted-color);">Per incident — Rs. 1,500</p>
-            <p style="font-size:12px;color:var(--brand-primary-color);">Annual pass — Rs. 8,000/yr</p>
+          <p>Round-the-clock remote assistance via phone, chat or remote desktop for all technical issues.</p>
+          <div class="service-prices">
+            <p>Per incident — Rs. 1,500</p>
+            <p class="highlight">Annual pass — Rs. 8,000/yr</p>
           </div>
-          <button class="sm-button" style="margin-top:12px;" onclick="showToast('Support plan activated!')">Get Support</button>
+          <button class="sm-button" onclick="showToast('Support plan activated!')">Get Support</button>
         </div>
       </div>
 
     </div>
 
     <!-- Support Plans Table -->
-    <div class="section reveal" style="padding:60px 0 0;">
+    <div class="section reveal plans-section">
       <div class="section-header">
         <h2>Support Plan Comparison</h2>
         <p>Choose the right level of coverage for you</p>
       </div>
-      <div class="table-container" style="margin-top:32px;">
-        <table style="min-width:600px;" class="table-bordered">
+      <div class="table-container">
+        <table id="plansTable" class="table-bordered">
           <thead>
             <tr><th>Feature</th><th>Basic</th><th>Pro</th><th>Elite</th></tr>
           </thead>
@@ -165,13 +165,13 @@
     </div>
 
     <!-- CTA -->
-    <div class="section reveal" style="padding:60px 0 0;">
+    <div class="section reveal cta-section">
       <div class="newsletter-strip">
-        <div style="display:flex;flex-direction:column;gap:8px;">
+        <div>
           <h2>Need a Custom Solution?</h2>
           <p>Our enterprise team is ready to design a package for your business.</p>
         </div>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <div>
           <button class="lg-button" onclick="window.location='contact.html'">Contact Us →</button>
           <button class="lg-button border-button" onclick="showToast('Calling +92 51 1234567...')">📞 Call Now</button>
         </div>
@@ -183,7 +183,7 @@
   <footer>
     <div class="footer-container">
       <div>
-        <h1>Lap<span style="color:var(--brand-primary-color);">Elite</span></h1>
+        <h1>Lap<span>Elite</span></h1>
         <p>Pakistan's premium laptop & tech store since 2019.</p>
       </div>
       <div>

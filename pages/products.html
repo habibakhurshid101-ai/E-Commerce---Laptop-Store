@@ -30,8 +30,8 @@
     <div class="nav-actions">
       <button id="themeToggle" onclick="toggleDarkMode()">🌙</button>
       <a href="compare.html" class="link-button">⚖️ Compare</a>
-      <a href="cart.html" class="link-button" style="position:relative;">🛒 Cart
-        <span id="cartBadge" style="display:none;position:absolute;top:-6px;right:-6px;background:#ef4444;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;align-items:center;justify-content:center;font-weight:700;">0</span>
+      <a href="cart.html" class="link-button">🛒 Cart
+        <span id="cartBadge">0</span>
       </a>
       <a href="login.html" class="link-button">Login</a>
     </div>
@@ -42,14 +42,14 @@
 
   <div class="page">
     <!-- Page Header -->
-    <div class="section-header" style="align-items:flex-start;margin-bottom:32px;">
+    <div class="section-header products-header">
       <h1>All Products</h1>
       <p>Explore 500+ laptops, desktops, workstations and accessories</p>
     </div>
 
     <!-- Filter Bar -->
-    <div style="display:flex;flex-wrap:wrap;gap:16px;padding:20px;background:var(--bg-card);border:1px solid var(--border-primary-color);border-radius:var(--radius-md);margin-bottom:36px;">
-      <div class="select-container" style="min-width:180px;flex:1;">
+    <div class="filter-bar">
+      <div class="select-container">
         <label>Category</label>
         <select id="filterCategory" onchange="filterProducts()">
           <option value="all">All Categories</option>
@@ -60,7 +60,7 @@
           <option value="accessory">Accessories</option>
         </select>
       </div>
-      <div class="select-container" style="min-width:160px;flex:1;">
+      <div class="select-container">
         <label>Brand</label>
         <select id="filterBrand" onchange="filterProducts()">
           <option value="all">All Brands</option>
@@ -72,7 +72,7 @@
           <option value="msi">MSI</option>
         </select>
       </div>
-      <div class="select-container" style="min-width:160px;flex:1;">
+      <div class="select-container">
         <label>Price Range</label>
         <select id="filterPrice" onchange="filterProducts()">
           <option value="all">Any Price</option>
@@ -82,7 +82,7 @@
           <option value="above500k">Above Rs.500K</option>
         </select>
       </div>
-      <div class="select-container" style="min-width:160px;flex:1;">
+      <div class="select-container">
         <label>Sort By</label>
         <select id="filterSort">
           <option value="featured">Featured</option>
@@ -91,162 +91,162 @@
           <option value="newest">Newest First</option>
         </select>
       </div>
-      <div style="display:flex;align-items:flex-end;">
+      <div>
         <button class="border-button sm-button" onclick="clearFilters()">Clear Filters</button>
       </div>
     </div>
 
     <!-- Results Count -->
-    <p style="margin-bottom:16px;font-size:13px;color:var(--text-muted-color);">Showing <strong style="color:var(--text-primary-color);">12</strong> products</p>
+    <p class="results-count">Showing <strong>12</strong> products</p>
 
     <!-- Product Cards -->
-    <div class="card-container" style="justify-content:flex-start;">
+    <div class="card-container products-grid">
 
-      <div class="card" style="width:280px;">
-        <div style="background:radial-gradient(circle,rgba(26,86,219,0.08),var(--bg-card));padding:28px;display:flex;justify-content:center;position:relative;">
-          <img src="../sources/img8.png" alt="Dell XPS 15" style="height:150px;object-fit:contain;"
+      <div class="card product-card">
+        <div class="card-img" data-grad="blue">
+          <img src="../sources/img8.png" alt="Dell XPS 15"
                onerror="this.src='https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=350&q=80'">
-          <span class="chip" style="position:absolute;top:10px;right:10px;background:#06d6a0;color:#000;">Bestseller</span>
+          <span class="chip" data-color="green">Bestseller</span>
         </div>
         <div class="card-body">
-          <p style="font-size:11px;color:var(--text-muted-color);">DELL · LAPTOP</p>
+          <p>DELL · LAPTOP</p>
           <h3>Dell XPS 15</h3>
-          <p style="font-size:12px;">Intel i7-13700H · 16GB · 512GB NVMe</p>
+          <p>Intel i7-13700H · 16GB · 512GB NVMe</p>
           <div class="card-footer-row">
-            <span class="price-tag" style="font-size:17px;">Rs. 289,000</span>
+            <span class="price-tag">Rs. 289,000</span>
             <button class="sm-button" onclick="addToCart('Dell XPS 15',289000,1)">Add to Cart</button>
           </div>
-          <a href="product-details.html" style="font-size:12px;margin-top:6px;">View Details →</a>
+          <a href="product-details.html">View Details →</a>
         </div>
       </div>
 
-      <div class="card" style="width:280px;">
-        <div style="background:radial-gradient(circle,rgba(124,58,237,0.08),var(--bg-card));padding:28px;display:flex;justify-content:center;position:relative;">
-          <img src="../sources/img9.png" alt="HP Spectre x360" style="height:150px;object-fit:contain;"
+      <div class="card product-card">
+        <div class="card-img" data-grad="purple">
+          <img src="../sources/img9.png" alt="HP Spectre x360"
                onerror="this.src='https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=350&q=80'">
-          <span class="chip" style="position:absolute;top:10px;right:10px;background:#7c3aed;color:#fff;">Pro</span>
+          <span class="chip" data-color="purple">Pro</span>
         </div>
         <div class="card-body">
-          <p style="font-size:11px;color:var(--text-muted-color);">HP · LAPTOP</p>
+          <p>HP · LAPTOP</p>
           <h3>HP Spectre x360</h3>
-          <p style="font-size:12px;">Intel i9 · 32GB · 1TB NVMe</p>
+          <p>Intel i9 · 32GB · 1TB NVMe</p>
           <div class="card-footer-row">
-            <span class="price-tag" style="font-size:17px;">Rs. 349,000</span>
+            <span class="price-tag">Rs. 349,000</span>
             <button class="sm-button" onclick="addToCart('HP Spectre x360',349000,2)">Add to Cart</button>
           </div>
-          <a href="product-details.html" style="font-size:12px;margin-top:6px;">View Details →</a>
+          <a href="product-details.html">View Details →</a>
         </div>
       </div>
 
-      <div class="card" style="width:280px;">
-        <div style="background:radial-gradient(circle,rgba(14,165,233,0.08),var(--bg-card));padding:28px;display:flex;justify-content:center;position:relative;">
-          <img src="../sources/img10.png" alt="Lenovo ThinkPad X1" style="height:150px;object-fit:contain;"
+      <div class="card product-card">
+        <div class="card-img" data-grad="sky">
+          <img src="../sources/img10.png" alt="Lenovo ThinkPad X1"
                onerror="this.src='https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=350&q=80'">
-          <span class="chip" style="position:absolute;top:10px;right:10px;background:#0ea5e9;color:#000;">New</span>
+          <span class="chip" data-color="sky">New</span>
         </div>
         <div class="card-body">
-          <p style="font-size:11px;color:var(--text-muted-color);">LENOVO · LAPTOP</p>
+          <p>LENOVO · LAPTOP</p>
           <h3>ThinkPad X1 Carbon</h3>
-          <p style="font-size:12px;">AMD Ryzen 9 · 32GB · 1TB · 4K OLED</p>
+          <p>AMD Ryzen 9 · 32GB · 1TB · 4K OLED</p>
           <div class="card-footer-row">
-            <span class="price-tag" style="font-size:17px;">Rs. 420,000</span>
+            <span class="price-tag">Rs. 420,000</span>
             <button class="sm-button" onclick="addToCart('ThinkPad X1 Carbon',420000,3)">Add to Cart</button>
           </div>
-          <a href="product-details.html" style="font-size:12px;margin-top:6px;">View Details →</a>
+          <a href="product-details.html">View Details →</a>
         </div>
       </div>
 
-      <div class="card" style="width:280px;">
-        <div style="background:radial-gradient(circle,rgba(239,68,68,0.08),var(--bg-card));padding:28px;display:flex;justify-content:center;position:relative;">
-          <img src="../sources/img11.png" alt="ASUS ROG Zephyrus" style="height:150px;object-fit:contain;"
+      <div class="card product-card">
+        <div class="card-img" data-grad="red">
+          <img src="../sources/img11.png" alt="ASUS ROG Zephyrus"
                onerror="this.src='https://images.unsplash.com/photo-1593640408182-31c228f5de05?w=350&q=80'">
-          <span class="chip" style="position:absolute;top:10px;right:10px;background:#ef4444;color:#fff;">Sale</span>
+          <span class="chip" data-color="red">Sale</span>
         </div>
         <div class="card-body">
-          <p style="font-size:11px;color:var(--text-muted-color);">ASUS · GAMING</p>
+          <p>ASUS · GAMING</p>
           <h3>ROG Zephyrus G14</h3>
-          <p style="font-size:12px;">Ryzen 9 · RTX 4080 · 32GB · 2TB</p>
+          <p>Ryzen 9 · RTX 4080 · 32GB · 2TB</p>
           <div class="card-footer-row">
-            <span class="price-tag" style="font-size:17px;">Rs. 520,000</span>
+            <span class="price-tag">Rs. 520,000</span>
             <button class="sm-button" onclick="addToCart('ROG Zephyrus G14',520000,4)">Add to Cart</button>
           </div>
-          <a href="product-details.html" style="font-size:12px;margin-top:6px;">View Details →</a>
+          <a href="product-details.html">View Details →</a>
         </div>
       </div>
 
-      <div class="card" style="width:280px;">
-        <div style="background:radial-gradient(circle,rgba(6,214,160,0.08),var(--bg-card));padding:28px;display:flex;justify-content:center;position:relative;">
-          <img src="../sources/img10.png" alt="MacBook Pro 14" style="height:150px;object-fit:contain;"
+      <div class="card product-card">
+        <div class="card-img" data-grad="green">
+          <img src="../sources/img10.png" alt="MacBook Pro 14"
                onerror="this.src='https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=350&q=80'">
         </div>
         <div class="card-body">
-          <p style="font-size:11px;color:var(--text-muted-color);">APPLE · LAPTOP</p>
+          <p>APPLE · LAPTOP</p>
           <h3>MacBook Pro 14"</h3>
-          <p style="font-size:12px;">M3 Pro · 18GB · 512GB SSD</p>
+          <p>M3 Pro · 18GB · 512GB SSD</p>
           <div class="card-footer-row">
-            <span class="price-tag" style="font-size:17px;">Rs. 580,000</span>
+            <span class="price-tag">Rs. 580,000</span>
             <button class="sm-button" onclick="addToCart('MacBook Pro 14',580000,5)">Add to Cart</button>
           </div>
-          <a href="product-details.html" style="font-size:12px;margin-top:6px;">View Details →</a>
+          <a href="product-details.html">View Details →</a>
         </div>
       </div>
 
-      <div class="card" style="width:280px;">
-        <div style="background:radial-gradient(circle,rgba(26,86,219,0.08),var(--bg-card));padding:28px;display:flex;justify-content:center;position:relative;">
-          <img src="../sources/img11.png" alt="MSI Titan GT77" style="height:150px;object-fit:contain;"
+      <div class="card product-card">
+        <div class="card-img" data-grad="blue">
+          <img src="../sources/img11.png" alt="MSI Titan GT77"
                onerror="this.src='https://images.unsplash.com/photo-1593640408182-31c228f5de05?w=350&q=80'">
-          <span class="chip" style="position:absolute;top:10px;right:10px;background:#f59e0b;color:#000;">Hot</span>
+          <span class="chip" data-color="amber">Hot</span>
         </div>
         <div class="card-body">
-          <p style="font-size:11px;color:var(--text-muted-color);">MSI · GAMING</p>
+          <p>MSI · GAMING</p>
           <h3>MSI Titan GT77</h3>
-          <p style="font-size:12px;">i9-13980HX · RTX 4090 · 64GB · 4TB</p>
+          <p>i9-13980HX · RTX 4090 · 64GB · 4TB</p>
           <div class="card-footer-row">
-            <span class="price-tag" style="font-size:17px;">Rs. 750,000</span>
+            <span class="price-tag">Rs. 750,000</span>
             <button class="sm-button" onclick="addToCart('MSI Titan GT77',750000,6)">Add to Cart</button>
           </div>
-          <a href="product-details.html" style="font-size:12px;margin-top:6px;">View Details →</a>
+          <a href="product-details.html">View Details →</a>
         </div>
       </div>
 
-      <div class="card" style="width:280px;">
-        <div style="background:radial-gradient(circle,rgba(14,165,233,0.08),var(--bg-card));padding:28px;display:flex;justify-content:center;position:relative;">
-          <img src="../sources/img9.png" alt="Dell Inspiron 15" style="height:150px;object-fit:contain;"
+      <div class="card product-card">
+        <div class="card-img" data-grad="sky">
+          <img src="../sources/img9.png" alt="Dell Inspiron 15"
                onerror="this.src='https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=350&q=80'">
         </div>
         <div class="card-body">
-          <p style="font-size:11px;color:var(--text-muted-color);">DELL · LAPTOP</p>
+          <p>DELL · LAPTOP</p>
           <h3>Dell Inspiron 15</h3>
-          <p style="font-size:12px;">Intel i5 · 8GB · 512GB SSD</p>
+          <p>Intel i5 · 8GB · 512GB SSD</p>
           <div class="card-footer-row">
-            <span class="price-tag" style="font-size:17px;">Rs. 115,000</span>
+            <span class="price-tag">Rs. 115,000</span>
             <button class="sm-button" onclick="addToCart('Dell Inspiron 15',115000,7)">Add to Cart</button>
           </div>
-          <a href="product-details.html" style="font-size:12px;margin-top:6px;">View Details →</a>
+          <a href="product-details.html">View Details →</a>
         </div>
       </div>
 
-      <div class="card" style="width:280px;">
-        <div style="background:radial-gradient(circle,rgba(124,58,237,0.08),var(--bg-card));padding:28px;display:flex;justify-content:center;position:relative;">
-          <img src="../sources/img8.png" alt="HP EliteBook 840" style="height:150px;object-fit:contain;"
+      <div class="card product-card">
+        <div class="card-img" data-grad="purple">
+          <img src="../sources/img8.png" alt="HP EliteBook 840"
                onerror="this.src='https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=350&q=80'">
         </div>
         <div class="card-body">
-          <p style="font-size:11px;color:var(--text-muted-color);">HP · BUSINESS</p>
+          <p>HP · BUSINESS</p>
           <h3>HP EliteBook 840</h3>
-          <p style="font-size:12px;">Intel i7 · 16GB · 512GB SSD · 14" FHD</p>
+          <p>Intel i7 · 16GB · 512GB SSD · 14" FHD</p>
           <div class="card-footer-row">
-            <span class="price-tag" style="font-size:17px;">Rs. 195,000</span>
+            <span class="price-tag">Rs. 195,000</span>
             <button class="sm-button" onclick="addToCart('HP EliteBook 840',195000,8)">Add to Cart</button>
           </div>
-          <a href="product-details.html" style="font-size:12px;margin-top:6px;">View Details →</a>
+          <a href="product-details.html">View Details →</a>
         </div>
       </div>
 
     </div>
 
     <!-- Load More -->
-    <div style="text-align:center;margin-top:32px;">
+    <div class="load-more">
       <button class="border-button">Load More Products</button>
     </div>
   </div>
@@ -254,7 +254,7 @@
   <footer>
     <div class="footer-container">
       <div>
-        <h1>Lap<span style="color:var(--brand-primary-color);">Elite</span></h1>
+        <h1>Lap<span>Elite</span></h1>
         <p>Pakistan's premium laptop & tech store since 2019.</p>
       </div>
       <div>

@@ -29,8 +29,8 @@
     </ul>
     <div class="nav-actions">
       <button id="themeToggle" onclick="toggleDarkMode()">🌙</button>
-      <a href="cart.html" class="link-button" style="position:relative;">🛒 Cart
-        <span id="cartBadge" style="display:none;position:absolute;top:-6px;right:-6px;background:#ef4444;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;align-items:center;justify-content:center;font-weight:700;">0</span>
+      <a href="cart.html" class="link-button">🛒 Cart
+        <span id="cartBadge">0</span>
       </a>
       <a href="login.html" class="link-button">Logout</a>
     </div>
@@ -41,70 +41,70 @@
 
   <div class="page">
     <!-- Welcome -->
-    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:40px;">
+    <div class="dash-top">
       <div>
         <h1>My Dashboard</h1>
-        <p style="margin-top:4px;">Welcome back, <strong id="dashUserName" style="color:var(--text-focus-color);">Ahmed</strong> 👋</p>
+        <p>Welcome back, <strong id="dashUserName">Ahmed</strong> 👋</p>
       </div>
       <button onclick="window.location='products.html'">Shop Now →</button>
     </div>
 
     <!-- Stat Cards -->
-    <div class="card-container" style="justify-content:flex-start;margin:0 0 40px 0;">
-      <div class="card" style="width:220px;padding:24px;flex-direction:row;align-items:center;gap:16px;">
-        <div class="icon-circle" style="width:52px;height:52px;font-size:22px;">📦</div>
-        <div><h3 style="font-size:28px;">7</h3><p style="font-size:13px;">Total Orders</p></div>
+    <div class="card-container dash-stats">
+      <div class="card stat-card">
+        <div class="icon-circle">📦</div>
+        <div><h3>7</h3><p>Total Orders</p></div>
       </div>
-      <div class="card" style="width:220px;padding:24px;flex-direction:row;align-items:center;gap:16px;">
-        <div class="icon-circle" style="width:52px;height:52px;font-size:22px;">❤️</div>
-        <div><h3 style="font-size:28px;">12</h3><p style="font-size:13px;">Wishlist Items</p></div>
+      <div class="card stat-card">
+        <div class="icon-circle">❤️</div>
+        <div><h3>12</h3><p>Wishlist Items</p></div>
       </div>
-      <div class="card" style="width:220px;padding:24px;flex-direction:row;align-items:center;gap:16px;">
-        <div class="icon-circle" style="width:52px;height:52px;font-size:22px;">💰</div>
-        <div><h3 style="font-size:28px;">Rs.8.4L</h3><p style="font-size:13px;">Total Spent</p></div>
+      <div class="card stat-card">
+        <div class="icon-circle">💰</div>
+        <div><h3>Rs.8.4L</h3><p>Total Spent</p></div>
       </div>
-      <div class="card" style="width:220px;padding:24px;flex-direction:row;align-items:center;gap:16px;">
-        <div class="icon-circle" style="width:52px;height:52px;font-size:22px;">🛡️</div>
-        <div><h3 style="font-size:28px;">3</h3><p style="font-size:13px;">Active Warranties</p></div>
+      <div class="card stat-card">
+        <div class="icon-circle">🛡️</div>
+        <div><h3>3</h3><p>Active Warranties</p></div>
       </div>
     </div>
 
     <!-- Orders Table -->
-    <div style="margin-bottom:48px;">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+    <div class="orders-wrap">
+      <div class="orders-top">
         <h2>Recent Orders</h2>
         <button class="border-button sm-button">View All</button>
       </div>
       <div class="table-container">
-        <table style="min-width:680px;">
+        <table id="ordersTable">
           <thead>
             <tr><th>Order ID</th><th>Product</th><th>Date</th><th>Amount</th><th>Status</th><th>Action</th></tr>
           </thead>
           <tbody>
             <tr>
               <td>#LE-20261</td><td>Dell XPS 15 (i7, 16GB)</td><td>Apr 20, 2026</td><td>Rs. 289,000</td>
-              <td><span class="chip" style="background:rgba(6,214,160,0.15);color:#06d6a0;">Delivered</span></td>
-              <td><a href="product-details.html" style="color:var(--text-focus-color);font-size:13px;">View →</a></td>
+              <td><span class="chip" data-color="delivered">Delivered</span></td>
+              <td><a href="product-details.html" class="order-link">View →</a></td>
             </tr>
             <tr>
               <td>#LE-20255</td><td>HP Spectre x360 (i9)</td><td>Apr 14, 2026</td><td>Rs. 349,000</td>
-              <td><span class="chip" style="background:rgba(26,86,219,0.15);color:#60a5fa;">Shipped</span></td>
-              <td><a href="product-details.html" style="color:var(--text-focus-color);font-size:13px;">Track →</a></td>
+              <td><span class="chip" data-color="shipped">Shipped</span></td>
+              <td><a href="product-details.html" class="order-link">Track →</a></td>
             </tr>
             <tr>
               <td>#LE-20243</td><td>Logitech MX Master 3S</td><td>Apr 10, 2026</td><td>Rs. 18,500</td>
-              <td><span class="chip" style="background:rgba(6,214,160,0.15);color:#06d6a0;">Delivered</span></td>
-              <td><a href="product-details.html" style="color:var(--text-focus-color);font-size:13px;">View →</a></td>
+              <td><span class="chip" data-color="delivered">Delivered</span></td>
+              <td><a href="product-details.html" class="order-link">View →</a></td>
             </tr>
             <tr>
               <td>#LE-20238</td><td>ASUS ROG Zephyrus G14</td><td>Mar 28, 2026</td><td>Rs. 520,000</td>
-              <td><span class="chip" style="background:rgba(239,68,68,0.15);color:#f87171;">Cancelled</span></td>
-              <td><a href="product-details.html" style="color:var(--text-focus-color);font-size:13px;">Reorder →</a></td>
+              <td><span class="chip" data-color="cancelled">Cancelled</span></td>
+              <td><a href="product-details.html" class="order-link">Reorder →</a></td>
             </tr>
             <tr>
               <td>#LE-20211</td><td>Lenovo ThinkPad X1</td><td>Mar 15, 2026</td><td>Rs. 420,000</td>
-              <td><span class="chip" style="background:rgba(6,214,160,0.15);color:#06d6a0;">Delivered</span></td>
-              <td><a href="product-details.html" style="color:var(--text-focus-color);font-size:13px;">View →</a></td>
+              <td><span class="chip" data-color="delivered">Delivered</span></td>
+              <td><a href="product-details.html" class="order-link">View →</a></td>
             </tr>
           </tbody>
         </table>
@@ -112,35 +112,35 @@
     </div>
 
     <!-- Account & Address -->
-    <div style="display:flex;flex-wrap:wrap;gap:24px;">
-      <div class="card" style="width:340px;padding:28px;">
+    <div class="account-cols">
+      <div class="card account-card">
         <h3>Account Details</h3>
-        <div style="margin-top:20px;display:flex;flex-direction:column;gap:14px;">
-          <div style="display:flex;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid var(--border-muted-color);">
-            <p style="font-size:13px;color:var(--text-muted-color);">Full Name</p><p style="font-size:13px;">Ahmed Khan</p>
+        <div class="account-rows">
+          <div class="account-row">
+            <p>Full Name</p><p>Ahmed Khan</p>
           </div>
-          <div style="display:flex;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid var(--border-muted-color);">
-            <p style="font-size:13px;color:var(--text-muted-color);">Email</p><p style="font-size:13px;">ahmed@example.com</p>
+          <div class="account-row">
+            <p>Email</p><p>ahmed@example.com</p>
           </div>
-          <div style="display:flex;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid var(--border-muted-color);">
-            <p style="font-size:13px;color:var(--text-muted-color);">Phone</p><p style="font-size:13px;">+92 300 1234567</p>
+          <div class="account-row">
+            <p>Phone</p><p>+92 300 1234567</p>
           </div>
-          <div style="display:flex;justify-content:space-between;">
-            <p style="font-size:13px;color:var(--text-muted-color);">Member Since</p><p style="font-size:13px;">Jan 2024</p>
+          <div class="account-row">
+            <p>Member Since</p><p>Jan 2024</p>
           </div>
         </div>
-        <div style="margin-top:20px;"><button class="border-button sm-button" style="width:100%;">Edit Profile</button></div>
+        <div class="account-edit"><button class="border-button sm-button">Edit Profile</button></div>
       </div>
 
-      <div class="card" style="width:340px;padding:28px;">
+      <div class="card account-card">
         <h3>Shipping Address</h3>
-        <div style="margin-top:20px;display:flex;flex-direction:column;gap:10px;">
-          <p style="font-size:14px;">Ahmed Khan</p>
-          <p style="font-size:13px;">House #42, Street 7, F-8/4</p>
-          <p style="font-size:13px;">Islamabad, Punjab 44000, Pakistan</p>
-          <p style="font-size:13px;">+92 300 1234567</p>
+        <div class="address-rows">
+          <p>Ahmed Khan</p>
+          <p>House #42, Street 7, F-8/4</p>
+          <p>Islamabad, Punjab 44000, Pakistan</p>
+          <p>+92 300 1234567</p>
         </div>
-        <div style="margin-top:20px;display:flex;gap:10px;">
+        <div class="address-actions">
           <button class="border-button sm-button">Edit</button>
           <button class="sm-button">+ Add New</button>
         </div>
@@ -151,7 +151,7 @@
   <footer>
     <div class="footer-container">
       <div>
-        <h1>Lap<span style="color:var(--brand-primary-color);">Elite</span></h1>
+        <h1>Lap<span>Elite</span></h1>
         <p>Pakistan's premium laptop & tech store since 2019.</p>
       </div>
       <div>

@@ -29,8 +29,8 @@
     </ul>
     <div class="nav-actions">
       <button id="themeToggle" onclick="toggleDarkMode()">🌙</button>
-      <a href="cart.html" class="link-button" style="position:relative;">🛒 Cart
-        <span id="cartBadge" style="display:none;position:absolute;top:-6px;right:-6px;background:#ef4444;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;align-items:center;justify-content:center;font-weight:700;">0</span>
+      <a href="cart.html" class="link-button">🛒 Cart
+        <span id="cartBadge">0</span>
       </a>
       <a href="login.html" class="link-button">Login</a>
     </div>
@@ -40,62 +40,62 @@
   </nav>
 
   <div class="page">
-    <div class="section-header" style="align-items:flex-start;margin-bottom:48px;">
+    <div class="section-header contact-header">
       <span class="badge">📬 Get in Touch</span>
-      <h1 style="margin-top:12px;">We'd Love to <span class="text-gradient">Hear</span> From You</h1>
+      <h1>We'd Love to <span class="text-gradient">Hear</span> From You</h1>
       <p>Whether you need product advice, support, or have a business inquiry — our team is ready.</p>
     </div>
 
     <!-- Info Cards -->
-    <div class="card-container reveal" style="justify-content:flex-start;margin:0 0 48px 0;">
-      <div class="card" style="width:240px;padding:28px;align-items:center;text-align:center;">
+    <div class="card-container reveal contact-cards">
+      <div class="card contact-info">
         <div class="icon-circle">📞</div>
-        <div class="card-body" style="align-items:center;">
+        <div class="card-body">
           <h3>Phone</h3>
-          <p style="font-size:13px;">+92 51 123 4567</p>
-          <p style="font-size:12px;color:var(--text-muted-color);">Mon–Sat, 9am–8pm</p>
+          <p>+92 51 123 4567</p>
+          <p>Mon–Sat, 9am–8pm</p>
         </div>
       </div>
-      <div class="card" style="width:240px;padding:28px;align-items:center;text-align:center;">
+      <div class="card contact-info">
         <div class="icon-circle">✉️</div>
-        <div class="card-body" style="align-items:center;">
+        <div class="card-body">
           <h3>Email</h3>
-          <p style="font-size:13px;">support@lapelite.pk</p>
-          <p style="font-size:12px;color:var(--text-muted-color);">Reply within 2 hours</p>
+          <p>support@lapelite.pk</p>
+          <p>Reply within 2 hours</p>
         </div>
       </div>
-      <div class="card" style="width:240px;padding:28px;align-items:center;text-align:center;">
+      <div class="card contact-info">
         <div class="icon-circle">📍</div>
-        <div class="card-body" style="align-items:center;">
+        <div class="card-body">
           <h3>Showroom</h3>
-          <p style="font-size:13px;">Blue Area, Jinnah Ave</p>
-          <p style="font-size:12px;color:var(--text-muted-color);">Islamabad, Pakistan</p>
+          <p>Blue Area, Jinnah Ave</p>
+          <p>Islamabad, Pakistan</p>
         </div>
       </div>
-      <div class="card" style="width:240px;padding:28px;align-items:center;text-align:center;">
+      <div class="card contact-info">
         <div class="icon-circle">💬</div>
-        <div class="card-body" style="align-items:center;">
+        <div class="card-body">
           <h3>Live Chat</h3>
-          <p style="font-size:13px;">Available 24/7</p>
-          <button class="sm-button" style="margin-top:8px;" onclick="showToast('Chat started! 💬')">Start Chat</button>
+          <p>Available 24/7</p>
+          <button class="sm-button" onclick="showToast('Chat started! 💬')">Start Chat</button>
         </div>
       </div>
     </div>
 
-    <!-- Form + Map Layout -->
-    <div style="display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start;">
+    <!-- Form + FAQ Layout -->
+    <div class="contact-body">
 
       <!-- Contact Form -->
-      <div style="flex:1;min-width:300px;">
-        <h2 style="margin-bottom:24px;">Send Us a Message</h2>
-        <div class="form-container" style="max-width:100%;">
+      <div>
+        <h2>Send Us a Message</h2>
+        <div class="form-container">
           <form id="contactForm" onsubmit="submitContact(event)">
-            <div style="display:flex;gap:16px;flex-wrap:wrap;">
-              <div style="flex:1;min-width:140px;">
+            <div class="form-row">
+              <div>
                 <label for="contactName">Full Name</label>
                 <input type="text" id="contactName" placeholder="Ahmed Khan" required>
               </div>
-              <div style="flex:1;min-width:140px;">
+              <div>
                 <label for="contactPhone">Phone</label>
                 <input type="tel" id="contactPhone" placeholder="+92 300 0000000">
               </div>
@@ -121,36 +121,36 @@
               <label for="contactMsg">Message</label>
               <textarea id="contactMsg" placeholder="Tell us how we can help…" required></textarea>
             </div>
-            <div style="margin-top:4px;">
-              <button type="submit" style="width:100%;">Send Message →</button>
+            <div class="form-submit">
+              <button type="submit">Send Message →</button>
             </div>
           </form>
         </div>
       </div>
 
       <!-- FAQ -->
-      <div style="flex:1;min-width:280px;">
-        <h2 style="margin-bottom:24px;">Frequently Asked Questions</h2>
-        <div style="display:flex;flex-direction:column;gap:12px;">
-          <div class="card" style="padding:20px;">
-            <h4 style="cursor:pointer;" onclick="toggleFaq(this)">Do you offer installment plans? ▾</h4>
-            <p style="font-size:13px;margin-top:10px;display:none;">Yes! We offer 0% installment plans via HBL, UBL, and Meezan Bank on purchases above Rs. 50,000. Apply at checkout.</p>
+      <div>
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <div class="card faq-item">
+            <h4 onclick="toggleFaq(this)">Do you offer installment plans? ▾</h4>
+            <p>Yes! We offer 0% installment plans via HBL, UBL, and Meezan Bank on purchases above Rs. 50,000. Apply at checkout.</p>
           </div>
-          <div class="card" style="padding:20px;">
-            <h4 style="cursor:pointer;" onclick="toggleFaq(this)">How long does delivery take? ▾</h4>
-            <p style="font-size:13px;margin-top:10px;display:none;">Islamabad/Rawalpindi: Same day. Lahore/Karachi: 1–2 business days. Other cities: 2–3 business days.</p>
+          <div class="card faq-item">
+            <h4 onclick="toggleFaq(this)">How long does delivery take? ▾</h4>
+            <p>Islamabad/Rawalpindi: Same day. Lahore/Karachi: 1–2 business days. Other cities: 2–3 business days.</p>
           </div>
-          <div class="card" style="padding:20px;">
-            <h4 style="cursor:pointer;" onclick="toggleFaq(this)">What is your return policy? ▾</h4>
-            <p style="font-size:13px;margin-top:10px;display:none;">7-day hassle-free returns on all products in original sealed condition. Manufacturing defects covered for full warranty period.</p>
+          <div class="card faq-item">
+            <h4 onclick="toggleFaq(this)">What is your return policy? ▾</h4>
+            <p>7-day hassle-free returns on all products in original sealed condition. Manufacturing defects covered for full warranty period.</p>
           </div>
-          <div class="card" style="padding:20px;">
-            <h4 style="cursor:pointer;" onclick="toggleFaq(this)">Are products genuine / warranty sealed? ▾</h4>
-            <p style="font-size:13px;margin-top:10px;display:none;">100% yes. Every product comes manufacturer-sealed with official Pakistan warranty. We do not stock grey-market items.</p>
+          <div class="card faq-item">
+            <h4 onclick="toggleFaq(this)">Are products genuine / warranty sealed? ▾</h4>
+            <p>100% yes. Every product comes manufacturer-sealed with official Pakistan warranty. We do not stock grey-market items.</p>
           </div>
-          <div class="card" style="padding:20px;">
-            <h4 style="cursor:pointer;" onclick="toggleFaq(this)">Do you offer bulk / corporate pricing? ▾</h4>
-            <p style="font-size:13px;margin-top:10px;display:none;">Yes! For orders of 5+ units, contact our corporate sales team at corporate@lapelite.pk for special pricing and dedicated support.</p>
+          <div class="card faq-item">
+            <h4 onclick="toggleFaq(this)">Do you offer bulk / corporate pricing? ▾</h4>
+            <p>Yes! For orders of 5+ units, contact our corporate sales team at corporate@lapelite.pk for special pricing and dedicated support.</p>
           </div>
         </div>
       </div>
@@ -161,7 +161,7 @@
   <footer>
     <div class="footer-container">
       <div>
-        <h1>Lap<span style="color:var(--brand-primary-color);">Elite</span></h1>
+        <h1>Lap<span>Elite</span></h1>
         <p>Pakistan's premium laptop & tech store since 2019.</p>
       </div>
       <div>

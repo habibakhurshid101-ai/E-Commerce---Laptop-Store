@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard — LapElite</title>
-  <meta name="description" content="Manage your LapElite orders, track shipments and update your account details.">
+  <title>Admin Dashboard — LapElite Stock Management</title>
+  <meta name="description" content="LapElite admin dashboard — manage stock, view analytics, track orders and control inventory.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../cssFile/globalStyles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
+
+  <!-- ===================== NAVBAR ===================== -->
   <nav>
     <a href="../index.html">Lap<span>Elite</span></a>
     <ul id="navMenu">
@@ -26,7 +29,7 @@
       <li><a href="services.html">Services</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="dashboard.html" class="active">Dashboard</a></li>
     </ul>
     <div class="nav-actions">
       <button id="themeToggle" onclick="toggleDarkMode()">🌙</button>
@@ -41,78 +44,256 @@
   </nav>
 
   <div class="page">
-    <!-- Welcome -->
+
+    <!-- ===================== WELCOME BANNER ===================== -->
     <div class="dash-top">
       <div>
-        <h1>My Dashboard</h1>
-        <p>Welcome back, <strong id="dashUserName">Ahmed</strong> 👋</p>
+        <div class="dash-role-badge">⚙️ Admin Panel</div>
+        <h1>Stock Management <span class="text-gradient">Dashboard</span></h1>
+        <p>Welcome back, <strong id="dashUserName">Admin</strong> 👋 &nbsp;—&nbsp; <span id="dashDateTime"></span></p>
       </div>
-      <button onclick="window.location='products.html'">Shop Now →</button>
+      <div class="dash-top-actions">
+        <button onclick="openModal('insertModal')" id="quickAddBtn">➕ Quick Add Stock</button>
+        <button class="border-button" onclick="window.location='products.html'">View Store →</button>
+      </div>
     </div>
 
-    <!-- Stat Cards -->
+    <!-- ===================== STOCK ACTION CARDS ===================== -->
+    <div class="dash-section-label">📦 Stock Operations</div>
+    <div class="dash-actions">
+
+      <div class="action-card" data-color="blue" onclick="openModal('viewStockModal')" id="viewAllStockCard">
+        <div class="action-card-icon">📋</div>
+        <div class="action-card-body">
+          <h3>View All Stock</h3>
+          <p>Browse complete inventory with search & filter tools</p>
+        </div>
+        <div class="action-card-arrow">→</div>
+      </div>
+
+      <div class="action-card" data-color="green" onclick="openModal('insertModal')" id="insertStockCard">
+        <div class="action-card-icon">➕</div>
+        <div class="action-card-body">
+          <h3>Insert New Stock</h3>
+          <p>Add new laptop or accessory to your inventory</p>
+        </div>
+        <div class="action-card-arrow">→</div>
+      </div>
+
+      <div class="action-card" data-color="amber" onclick="openModal('updateModal')" id="updateStockCard">
+        <div class="action-card-icon">✏️</div>
+        <div class="action-card-body">
+          <h3>Update Stock</h3>
+          <p>Edit product details, price, or stock quantity</p>
+        </div>
+        <div class="action-card-arrow">→</div>
+      </div>
+
+      <div class="action-card" data-color="red" onclick="openModal('deleteModal')" id="deleteStockCard">
+        <div class="action-card-icon">🗑️</div>
+        <div class="action-card-body">
+          <h3>Delete Stock</h3>
+          <p>Remove discontinued or out-of-stock items</p>
+        </div>
+        <div class="action-card-arrow">→</div>
+      </div>
+
+    </div>
+
+    <!-- ===================== KPI STAT CARDS ===================== -->
+    <div class="dash-section-label">📊 Key Metrics</div>
     <div class="card-container dash-stats">
       <div class="card stat-card">
         <div class="icon-circle">📦</div>
-        <div><h3>7</h3><p>Total Orders</p></div>
+        <div><h3 id="kpiTotalStock">124</h3><p>Total Stock Items</p></div>
       </div>
       <div class="card stat-card">
-        <div class="icon-circle">❤️</div>
-        <div><h3>12</h3><p>Wishlist Items</p></div>
+        <div class="icon-circle" style="background:rgba(239,68,68,0.15);border-color:rgba(239,68,68,0.3)">⚠️</div>
+        <div><h3 id="kpiLowStock" style="color:#f87171">8</h3><p>Low Stock Alerts</p></div>
       </div>
       <div class="card stat-card">
-        <div class="icon-circle">💰</div>
-        <div><h3>Rs.8.4L</h3><p>Total Spent</p></div>
+        <div class="icon-circle" style="background:rgba(6,214,160,0.15);border-color:rgba(6,214,160,0.3)">💰</div>
+        <div><h3 id="kpiRevenue" style="color:#06d6a0">Rs.2.4M</h3><p>Revenue This Month</p></div>
       </div>
       <div class="card stat-card">
-        <div class="icon-circle">🛡️</div>
-        <div><h3>3</h3><p>Active Warranties</p></div>
+        <div class="icon-circle">🛒</div>
+        <div><h3 id="kpiOrders">47</h3><p>Orders This Month</p></div>
+      </div>
+      <div class="card stat-card">
+        <div class="icon-circle" style="background:rgba(124,58,237,0.15);border-color:rgba(124,58,237,0.3)">👥</div>
+        <div><h3 style="color:#a78bfa">1.2K</h3><p>Active Customers</p></div>
+      </div>
+      <div class="card stat-card">
+        <div class="icon-circle" style="background:rgba(14,165,233,0.15);border-color:rgba(14,165,233,0.3)">🛡️</div>
+        <div><h3 style="color:#38bdf8">96%</h3><p>Fulfilment Rate</p></div>
       </div>
     </div>
 
-    <!-- Orders Table -->
-    <div class="orders-wrap">
-      <div class="orders-top">
-        <h2>Recent Orders</h2>
-        <button class="border-button sm-button">View All</button>
+    <!-- ===================== CHARTS ROW ===================== -->
+    <div class="dash-section-label">📈 Analytics & Graphical View</div>
+    <div class="dash-charts">
+
+      <div class="chart-box" id="salesChartBox">
+        <div class="chart-box-header">
+          <div>
+            <h3>Monthly Sales Volume</h3>
+            <p>Units sold per month — last 6 months</p>
+          </div>
+          <span class="chip" data-color="sky">Bar Chart</span>
+        </div>
+        <div class="chart-canvas-wrap">
+          <canvas id="salesChart"></canvas>
+        </div>
       </div>
-      <div class="table-container">
-        <table id="ordersTable">
-          <thead>
-            <tr><th>Order ID</th><th>Product</th><th>Date</th><th>Amount</th><th>Status</th><th>Action</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>#LE-20261</td><td>Dell XPS 15 (i7, 16GB)</td><td>Apr 20, 2026</td><td>Rs. 289,000</td>
-              <td><span class="chip" data-color="delivered">Delivered</span></td>
-              <td><a href="product-details.html" class="order-link">View →</a></td>
-            </tr>
-            <tr>
-              <td>#LE-20255</td><td>HP Spectre x360 (i9)</td><td>Apr 14, 2026</td><td>Rs. 349,000</td>
-              <td><span class="chip" data-color="shipped">Shipped</span></td>
-              <td><a href="product-details.html" class="order-link">Track →</a></td>
-            </tr>
-            <tr>
-              <td>#LE-20243</td><td>Logitech MX Master 3S</td><td>Apr 10, 2026</td><td>Rs. 18,500</td>
-              <td><span class="chip" data-color="delivered">Delivered</span></td>
-              <td><a href="product-details.html" class="order-link">View →</a></td>
-            </tr>
-            <tr>
-              <td>#LE-20238</td><td>ASUS ROG Zephyrus G14</td><td>Mar 28, 2026</td><td>Rs. 520,000</td>
-              <td><span class="chip" data-color="cancelled">Cancelled</span></td>
-              <td><a href="product-details.html" class="order-link">Reorder →</a></td>
-            </tr>
-            <tr>
-              <td>#LE-20211</td><td>Lenovo ThinkPad X1</td><td>Mar 15, 2026</td><td>Rs. 420,000</td>
-              <td><span class="chip" data-color="delivered">Delivered</span></td>
-              <td><a href="product-details.html" class="order-link">View →</a></td>
-            </tr>
-          </tbody>
-        </table>
+
+      <div class="chart-box" id="categoryChartBox">
+        <div class="chart-box-header">
+          <div>
+            <h3>Stock by Category</h3>
+            <p>Current inventory distribution</p>
+          </div>
+          <span class="chip" data-color="purple">Doughnut</span>
+        </div>
+        <div class="chart-canvas-wrap">
+          <canvas id="categoryChart"></canvas>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="dash-charts" style="margin-top:20px">
+      <div class="chart-box chart-box-wide" id="revenueChartBox">
+        <div class="chart-box-header">
+          <div>
+            <h3>Revenue Trend</h3>
+            <p>Monthly revenue (PKR) — last 6 months</p>
+          </div>
+          <span class="chip" data-color="green">Line Chart</span>
+        </div>
+        <div class="chart-canvas-wrap">
+          <canvas id="revenueChart"></canvas>
+        </div>
+      </div>
+
+      <div class="chart-box" id="stockStatusChartBox">
+        <div class="chart-box-header">
+          <div>
+            <h3>Stock Status</h3>
+            <p>In-stock vs low vs out-of-stock</p>
+          </div>
+          <span class="chip" data-color="amber">Pie Chart</span>
+        </div>
+        <div class="chart-canvas-wrap">
+          <canvas id="stockStatusChart"></canvas>
+        </div>
       </div>
     </div>
 
-    <!-- Account & Address -->
+    <!-- ===================== QUICK LINKS ===================== -->
+    <div class="dash-section-label">🔗 Quick Navigation</div>
+    <div class="dash-links">
+      <a href="products.html" class="quick-link" id="qlProducts">
+        <div class="quick-link-icon">🖥️</div>
+        <div><strong>All Products</strong><p>Browse & manage</p></div>
+      </a>
+      <a href="products.html" class="quick-link" id="qlLaptops">
+        <div class="quick-link-icon">💻</div>
+        <div><strong>Laptops</strong><p>44 models</p></div>
+      </a>
+      <a href="products.html" class="quick-link" id="qlGaming">
+        <div class="quick-link-icon">🎮</div>
+        <div><strong>Gaming</strong><p>18 models</p></div>
+      </a>
+      <a href="products.html" class="quick-link" id="qlAccessories">
+        <div class="quick-link-icon">🖱️</div>
+        <div><strong>Accessories</strong><p>36 items</p></div>
+      </a>
+      <a href="cart.html" class="quick-link" id="qlOrders">
+        <div class="quick-link-icon">📦</div>
+        <div><strong>Orders</strong><p>Pending: 12</p></div>
+      </a>
+      <a href="services.html" class="quick-link" id="qlWarranty">
+        <div class="quick-link-icon">🛡️</div>
+        <div><strong>Warranties</strong><p>Manage plans</p></div>
+      </a>
+      <a href="contact.html" class="quick-link" id="qlCustomers">
+        <div class="quick-link-icon">👥</div>
+        <div><strong>Customers</strong><p>Support & CRM</p></div>
+      </a>
+      <a href="#" class="quick-link" id="qlReports" onclick="showToast('Reports module coming soon!')">
+        <div class="quick-link-icon">📊</div>
+        <div><strong>Reports</strong><p>Sales & analytics</p></div>
+      </a>
+      <a href="compare.html" class="quick-link" id="qlCompare">
+        <div class="quick-link-icon">⚖️</div>
+        <div><strong>Compare</strong><p>Side-by-side</p></div>
+      </a>
+      <a href="#" class="quick-link" id="qlSettings" onclick="showToast('Settings module coming soon!')">
+        <div class="quick-link-icon">⚙️</div>
+        <div><strong>Settings</strong><p>Store config</p></div>
+      </a>
+    </div>
+
+    <!-- ===================== RECENT ACTIVITY FEED ===================== -->
+    <div class="dash-section-label">🕐 Recent Activity</div>
+    <div class="dash-activity-row">
+
+      <div class="activity-feed-wrap">
+        <div class="orders-top">
+          <h3>Stock Activity Log</h3>
+          <button class="border-button sm-button" onclick="clearActivity()">Clear Log</button>
+        </div>
+        <div class="activity-feed" id="activityFeed">
+          <!-- populated by JS -->
+        </div>
+      </div>
+
+      <!-- ===================== ORDERS TABLE ===================== -->
+      <div class="orders-wrap">
+        <div class="orders-top">
+          <h3>Recent Orders</h3>
+          <button class="border-button sm-button">View All</button>
+        </div>
+        <div class="table-container">
+          <table id="ordersTable">
+            <thead>
+              <tr><th>Order ID</th><th>Product</th><th>Date</th><th>Amount</th><th>Status</th><th>Action</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#LE-20261</td><td>Dell XPS 15 (i7, 16GB)</td><td>Apr 20, 2026</td><td>Rs. 289,000</td>
+                <td><span class="chip" data-color="delivered">Delivered</span></td>
+                <td><a href="product-details.html" class="order-link">View →</a></td>
+              </tr>
+              <tr>
+                <td>#LE-20255</td><td>HP Spectre x360 (i9)</td><td>Apr 14, 2026</td><td>Rs. 349,000</td>
+                <td><span class="chip" data-color="shipped">Shipped</span></td>
+                <td><a href="product-details.html" class="order-link">Track →</a></td>
+              </tr>
+              <tr>
+                <td>#LE-20243</td><td>Logitech MX Master 3S</td><td>Apr 10, 2026</td><td>Rs. 18,500</td>
+                <td><span class="chip" data-color="delivered">Delivered</span></td>
+                <td><a href="product-details.html" class="order-link">View →</a></td>
+              </tr>
+              <tr>
+                <td>#LE-20238</td><td>ASUS ROG Zephyrus G14</td><td>Mar 28, 2026</td><td>Rs. 520,000</td>
+                <td><span class="chip" data-color="cancelled">Cancelled</span></td>
+                <td><a href="product-details.html" class="order-link">Reorder →</a></td>
+              </tr>
+              <tr>
+                <td>#LE-20211</td><td>Lenovo ThinkPad X1</td><td>Mar 15, 2026</td><td>Rs. 420,000</td>
+                <td><span class="chip" data-color="delivered">Delivered</span></td>
+                <td><a href="product-details.html" class="order-link">View →</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ===================== ACCOUNT SECTION ===================== -->
+    <div class="dash-section-label" style="margin-top:48px">👤 Account</div>
     <div class="account-cols">
       <div class="card account-card">
         <h3>Account Details</h3>
@@ -121,16 +302,19 @@
             <p>Full Name</p><p>Ahmed Khan</p>
           </div>
           <div class="account-row">
-            <p>Email</p><p>ahmed@example.com</p>
+            <p>Email</p><p>ahmed@lapelite.pk</p>
           </div>
           <div class="account-row">
             <p>Phone</p><p>+92 300 1234567</p>
           </div>
           <div class="account-row">
+            <p>Role</p><p><span class="chip" data-color="purple">Admin</span></p>
+          </div>
+          <div class="account-row">
             <p>Member Since</p><p>Jan 2024</p>
           </div>
         </div>
-        <div class="account-edit"><button class="border-button sm-button">Edit Profile</button></div>
+        <div class="account-edit"><button class="border-button sm-button" style="width:100%">Edit Profile</button></div>
       </div>
 
       <div class="card account-card">
@@ -146,20 +330,240 @@
           <button class="sm-button">+ Add New</button>
         </div>
       </div>
+
+      <div class="card account-card">
+        <h3>Store Summary</h3>
+        <div class="account-rows">
+          <div class="account-row">
+            <p>Total Products</p><p id="summaryProducts">124</p>
+          </div>
+          <div class="account-row">
+            <p>Categories</p><p>5</p>
+          </div>
+          <div class="account-row">
+            <p>Active Orders</p><p>12</p>
+          </div>
+          <div class="account-row">
+            <p>Last Updated</p><p id="summaryLastUpdated">—</p>
+          </div>
+        </div>
+        <div class="account-edit">
+          <button class="sm-button" style="width:100%" onclick="openModal('insertModal')">➕ Add Stock Now</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end .page -->
+
+
+  <!-- ============================================================
+       MODAL: VIEW ALL STOCK
+  ============================================================ -->
+  <div class="dash-modal-overlay" id="viewStockModal" onclick="closeModalOnOverlay(event,'viewStockModal')">
+    <div class="dash-modal">
+      <div class="dash-modal-header">
+        <h3>📋 All Stock Inventory</h3>
+        <button class="dash-modal-close" onclick="closeModal('viewStockModal')">✕</button>
+      </div>
+      <div class="dash-modal-body">
+        <div class="modal-search-row">
+          <input type="text" id="stockSearchInput" placeholder="🔍 Search product name…" oninput="renderStockTable()">
+          <select id="stockCategoryFilter" onchange="renderStockTable()">
+            <option value="">All Categories</option>
+            <option>Laptop</option>
+            <option>Desktop</option>
+            <option>Gaming</option>
+            <option>Accessory</option>
+            <option>Workstation</option>
+          </select>
+        </div>
+        <div class="table-container">
+          <table id="stockTable">
+            <thead>
+              <tr><th>#</th><th>Product Name</th><th>Category</th><th>Price (Rs.)</th><th>Qty</th><th>Status</th><th>Actions</th></tr>
+            </thead>
+            <tbody id="stockTableBody">
+              <!-- populated by JS -->
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer-row">
+          <p id="stockCount" style="font-size:13px;color:var(--text-muted-color)"></p>
+          <button onclick="closeModal('viewStockModal')">Close</button>
+        </div>
+      </div>
     </div>
   </div>
 
+  <!-- ============================================================
+       MODAL: INSERT NEW STOCK
+  ============================================================ -->
+  <div class="dash-modal-overlay" id="insertModal" onclick="closeModalOnOverlay(event,'insertModal')">
+    <div class="dash-modal">
+      <div class="dash-modal-header">
+        <h3>➕ Insert New Stock</h3>
+        <button class="dash-modal-close" onclick="closeModal('insertModal')">✕</button>
+      </div>
+      <div class="dash-modal-body">
+        <form class="form-container" onsubmit="handleInsertStock(event)" id="insertStockForm">
+          <div class="form-row">
+            <div>
+              <label for="insertName">Product Name *</label>
+              <input type="text" id="insertName" placeholder="e.g. Dell XPS 15" required>
+            </div>
+            <div>
+              <label for="insertCategory">Category *</label>
+              <div class="select-container">
+                <select id="insertCategory" required>
+                  <option value="">Select…</option>
+                  <option>Laptop</option>
+                  <option>Desktop</option>
+                  <option>Gaming</option>
+                  <option>Accessory</option>
+                  <option>Workstation</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="insertPrice">Price (Rs.) *</label>
+              <input type="number" id="insertPrice" placeholder="e.g. 289000" min="0" required>
+            </div>
+            <div>
+              <label for="insertQty">Stock Quantity *</label>
+              <input type="number" id="insertQty" placeholder="e.g. 20" min="0" required>
+            </div>
+          </div>
+          <div>
+            <label for="insertBrand">Brand</label>
+            <input type="text" id="insertBrand" placeholder="e.g. Dell, HP, Lenovo">
+          </div>
+          <div>
+            <label for="insertSpecs">Specifications</label>
+            <input type="text" id="insertSpecs" placeholder="e.g. Intel i7, 16GB RAM, 512GB SSD">
+          </div>
+          <div class="form-submit">
+            <button type="submit" style="width:100%">✅ Add to Inventory</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MODAL: UPDATE STOCK
+  ============================================================ -->
+  <div class="dash-modal-overlay" id="updateModal" onclick="closeModalOnOverlay(event,'updateModal')">
+    <div class="dash-modal">
+      <div class="dash-modal-header">
+        <h3>✏️ Update Stock</h3>
+        <button class="dash-modal-close" onclick="closeModal('updateModal')">✕</button>
+      </div>
+      <div class="dash-modal-body">
+        <div style="margin-bottom:20px">
+          <label for="updateSearch">Search Product to Update</label>
+          <input type="text" id="updateSearch" placeholder="Type product name…" oninput="renderUpdateList()">
+        </div>
+        <div id="updateList" class="update-list">
+          <!-- populated by JS -->
+        </div>
+        <!-- edit form (shown after selecting a product) -->
+        <form class="form-container" id="updateForm" onsubmit="handleUpdateStock(event)" style="display:none;margin-top:20px">
+          <input type="hidden" id="updateId">
+          <div class="form-row">
+            <div>
+              <label for="updateName">Product Name</label>
+              <input type="text" id="updateName" required>
+            </div>
+            <div>
+              <label for="updateCategory">Category</label>
+              <div class="select-container">
+                <select id="updateCategory">
+                  <option>Laptop</option><option>Desktop</option><option>Gaming</option><option>Accessory</option><option>Workstation</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="updatePrice">Price (Rs.)</label>
+              <input type="number" id="updatePrice" min="0" required>
+            </div>
+            <div>
+              <label for="updateQty">Quantity</label>
+              <input type="number" id="updateQty" min="0" required>
+            </div>
+          </div>
+          <div>
+            <label for="updateSpecs">Specifications</label>
+            <input type="text" id="updateSpecs">
+          </div>
+          <div class="form-submit" style="display:flex;gap:10px">
+            <button type="submit" style="flex:1">💾 Save Changes</button>
+            <button type="button" class="border-button" onclick="document.getElementById('updateForm').style.display='none'" style="flex:1">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MODAL: DELETE STOCK
+  ============================================================ -->
+  <div class="dash-modal-overlay" id="deleteModal" onclick="closeModalOnOverlay(event,'deleteModal')">
+    <div class="dash-modal">
+      <div class="dash-modal-header">
+        <h3>🗑️ Delete Stock</h3>
+        <button class="dash-modal-close" onclick="closeModal('deleteModal')">✕</button>
+      </div>
+      <div class="dash-modal-body">
+        <div style="margin-bottom:20px">
+          <label for="deleteSearch">Search Product</label>
+          <input type="text" id="deleteSearch" placeholder="Type product name to find…" oninput="renderDeleteList()">
+        </div>
+        <div id="deleteList" class="update-list">
+          <!-- populated by JS -->
+        </div>
+        <!-- confirm box -->
+        <div id="deleteConfirmBox" class="delete-confirm" style="display:none">
+          <p>⚠️ Are you sure you want to delete <strong id="deleteTargetName"></strong>?</p>
+          <div style="display:flex;gap:10px;margin-top:16px">
+            <button onclick="confirmDelete()" style="background:#dc2626;flex:1">🗑️ Yes, Delete</button>
+            <button class="border-button" onclick="document.getElementById('deleteConfirmBox').style.display='none'" style="flex:1">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===================== FOOTER ===================== -->
   <footer>
     <div class="footer-container">
       <div>
         <h1>Lap<span>Elite</span></h1>
-        <p>Pakistan's premium laptop & tech store since 2019.</p>
+        <p>Pakistan's premium laptop &amp; tech store since 2019.</p>
+        <div class="social-links">
+          <a href="#">𝕏</a>
+          <a href="#">in</a>
+          <a href="#">📘</a>
+          <a href="#">📸</a>
+        </div>
       </div>
       <div>
         <h2>Quick Links</h2>
         <a href="../index.html">Home</a>
         <a href="products.html">Products</a>
         <a href="contact.html">Contact</a>
+        <a href="dashboard.html">Dashboard</a>
+      </div>
+      <div>
+        <h2>Stock Ops</h2>
+        <a href="#" onclick="openModal('viewStockModal')">View Inventory</a>
+        <a href="#" onclick="openModal('insertModal')">Add Product</a>
+        <a href="#" onclick="openModal('updateModal')">Update Stock</a>
+        <a href="#" onclick="openModal('deleteModal')">Remove Item</a>
       </div>
     </div>
     <div class="footer-bottom"><p>&copy; 2026 LapElite Pvt. Ltd. All rights reserved.</p></div>
@@ -167,11 +571,30 @@
 
   <script src="../jsFile/jsFunctions.js"></script>
   <script>
+    /* ---- Dashboard Bootstrap ---- */
     document.addEventListener('DOMContentLoaded', function () {
+      // Username
       const user = JSON.parse(localStorage.getItem('lapEliteUser') || '{}');
       const el = document.getElementById('dashUserName');
       if (el && user.name) el.textContent = user.name.split(' ')[0];
+
+      // Live date/time
+      updateDashDate();
+      setInterval(updateDashDate, 1000);
+
+      // Init charts
+      initDashboardCharts();
+
+      // Render activity feed
+      renderActivityFeed();
+
+      // Seed default stock if empty
+      seedDefaultStock();
+
+      // KPI update
+      refreshKPIs();
     });
   </script>
+
 </body>
 </html>
